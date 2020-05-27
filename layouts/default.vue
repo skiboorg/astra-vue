@@ -29,10 +29,15 @@
 
     // data:function(){
     //   return{
-    //     scrollY:0
+    //     tt:0
     //   }
     //
     // },
+    //   methods:{
+    //     test:function () {
+    //         this.tt+=1
+    //     }
+    //   }
     // watch:{
     //   scrollY(val){
     //   }

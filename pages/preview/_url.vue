@@ -3,7 +3,7 @@
     <div class="preview-header">
      <nuxt-link class="btn-return" to="/">На главную</nuxt-link>
       <div class="">
-         <span class="preview__btn phone" @click="test = 'previewFrameIpad'"></span>
+         <span class="preview__btn phone" @click="test = 'previewFramePhone'"></span>
       <span class="preview__btn ipad" @click="test = 'previewFrameIpad'"></span>
       <span class="preview__btn desktop" @click="test = 'previewFrameDesktop'"></span>
 
@@ -14,8 +14,13 @@
       </div>
 
 
+
     </div>
- <vue-friendly-iframe :src="previewUrl" :class="test" @load="onLoad"></vue-friendly-iframe>
+    <div class="loader " v-bind:class="{loaderActiveC : loaderActive }">
+        <div class="lds-roller" ><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+      </div>
+     <vue-friendly-iframe :src="previewUrl" :class="test" @iframe-load="onLoad"></vue-friendly-iframe>
+<!-- -->
   </div>
 
 </template>
@@ -24,8 +29,10 @@
 export default {
   data:function(){
       return{
+
         previewUrl:'https://www.pexels.com/search/tiger',
-        test:'previewFrameDesktop'
+        test:'previewFrameDesktop',
+          loaderActive:true,
       }
 
     },
@@ -35,12 +42,29 @@ export default {
   methods:{
     onLoad(){
       console.log('load')
-    }
+        this.loaderActive = false
+    },
+
   }
 }
 </script>
 
 <style lang="sass">
+  .loader
+    position: absolute
+    width: 100vw
+    left: 0
+    right: 0
+    bottom: 0
+    height: 100vh
+    background: rgba(0, 0, 0, 0.44)
+    display: none
+    align-items: center
+    justify-content: center
+    &.loaderActiveC
+      display: flex
+
+
   .preview-header
     padding: 10px
     background: #F3F3F3
@@ -68,6 +92,7 @@ export default {
       &::before
         opacity: 1
         left: -30px
+
 
 
 
@@ -99,21 +124,115 @@ export default {
 
 
   .previewFrameDesktop
-
     iframe
       width: 100%
       height: 100vh
   .previewFrameIpad
-
-    background: url("https://s3sf.tmimgcdn.com/0e1b864d80f504a8021db7042414ad0b.svg") no-repeat center
+    background: url("/ipad.svg") no-repeat 50% 0
     display: flex
     justify-content: center
     height: 1242px
     iframe
-      padding-top: 107px
+      padding-top: 105px
       width: 783px
       height: 1145px
       min-height: calc(100vh - 60px)
+  .previewFramePhone
+    background: url("/phone.svg") no-repeat 50% 0
+    display: flex
+    justify-content: center
+    height: 1242px
+    iframe
+      padding-top: 105px
+      width: 335px
+      height: 600px
+      min-height: calc(100vh - 60px)
+
+  .lds-roller
+    display: inline-block
+    position: relative
+    width: 80px
+    height: 80px
+
+  .lds-roller div
+    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite
+    transform-origin: 40px 40px
+
+  .lds-roller div:after
+    content: " "
+    display: block
+    position: absolute
+    width: 7px
+    height: 7px
+    border-radius: 50%
+    background: #fff
+    margin: -4px 0 0 -4px
+
+  .lds-roller div:nth-child(1)
+    animation-delay: -0.036s
+
+  .lds-roller div:nth-child(1):after
+    top: 63px
+    left: 63px
+
+  .lds-roller div:nth-child(2)
+    animation-delay: -0.072s
+
+  .lds-roller div:nth-child(2):after
+    top: 68px
+    left: 56px
+
+  .lds-roller div:nth-child(3)
+    animation-delay: -0.108s
+
+  .lds-roller div:nth-child(3):after
+    top: 71px
+    left: 48px
+
+  .lds-roller div:nth-child(4)
+    animation-delay: -0.144s
+
+  .lds-roller div:nth-child(4):after
+    top: 72px
+    left: 40px
+
+  .lds-roller div:nth-child(5)
+    animation-delay: -0.18s
+
+  .lds-roller div:nth-child(5):after
+    top: 71px
+    left: 32px
+
+  .lds-roller div:nth-child(6)
+    animation-delay: -0.216s
+
+  .lds-roller div:nth-child(6):after
+    top: 68px
+    left: 24px
+
+  .lds-roller div:nth-child(7)
+    animation-delay: -0.252s
+
+  .lds-roller div:nth-child(7):after
+    top: 63px
+    left: 17px
+
+  .lds-roller div:nth-child(8)
+    animation-delay: -0.288s
+
+  .lds-roller div:nth-child(8):after
+    top: 56px
+    left: 12px
+
+  @keyframes lds-roller
+    0%
+      transform: rotate(0deg)
+
+    100%
+      transform: rotate(360deg)
+
+
+
 
   @media (max-width: 1024px)
     .preview__btn
