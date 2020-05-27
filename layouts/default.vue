@@ -15,12 +15,12 @@
   import vueSmoothScroll from 'vue2-smooth-scroll';
   import VueTheMask from 'vue-the-mask';
   import VueFriendlyIframe from 'vue-friendly-iframe';
-  import { Select } from 'element-ui';
+  import { Select, MessageBox  } from 'element-ui';
 
 
 
 
-  Vue.component(Select.name, Select);
+  Vue.component(Select.name, Select, MessageBox);
   Vue.use(vueSmoothScroll)
   Vue.use(VueTheMask)
   Vue.use(VueFriendlyIframe);

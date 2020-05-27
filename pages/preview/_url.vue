@@ -6,15 +6,10 @@
          <span class="preview__btn phone" @click="test = 'previewFramePhone'"></span>
       <span class="preview__btn ipad" @click="test = 'previewFrameIpad'"></span>
       <span class="preview__btn desktop" @click="test = 'previewFrameDesktop'"></span>
-
       </div>
-
       <div class="incart__btn">
-        <span class="btn">В корзину</span>
+        <span class="btn">Заказать</span>
       </div>
-
-
-
     </div>
     <div class="loader " v-bind:class="{loaderActiveC : loaderActive }">
         <div class="lds-roller" ><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
@@ -126,7 +121,7 @@ export default {
   .previewFrameDesktop
     iframe
       width: 100%
-      height: 100vh
+      height: calc(100vh - 100px)
   .previewFrameIpad
     background: url("/ipad.svg") no-repeat 50% 0
     display: flex
@@ -146,7 +141,7 @@ export default {
       padding-top: 105px
       width: 335px
       height: 600px
-      min-height: calc(100vh - 60px)
+
 
   .lds-roller
     display: inline-block

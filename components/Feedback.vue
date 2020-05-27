@@ -3,30 +3,23 @@
     <div class="container">
       <h3>Отзывы</h3>
        <agile :options="myOptions">
-        <div class="slide">
-            <h3>slide 1</h3>
+        <div class="slide" @click="open(f.videoID,f.name)" v-for="f in feedBacks">
+          <div class="slide__inner">
+            <img :src="getVideoImg(f.videoID)" alt="">
+          </div>
         </div>
-        <div class="slide">
-            <h3>slide2</h3>
-        </div>
-          <div class="slide">
-            <h3>slide3</h3>
-        </div>
-          <div class="slide">
-            <h3>slide4</h3>
-        </div>
-          <div class="slide">
-            <h3>slide5</h3>
-        </div>
+
     </agile>
       <h4>Если у вас появились вопросы задайте их нам </h4>
       <div class="feedback-icons">
           <a href=""> <img src="/wa.png" alt=""></a>
           <a href=""><img src="/vb.png" alt=""></a>
-
-
         </div>
+      <div class="video-modal">
+
+      </div>
     </div>
+
   </div>
 </template>
 
@@ -34,6 +27,12 @@
 export default {
     data:function() {
       return {
+        feedBacks:[
+          {name:'Отзыв1',videoID: 'tgbNymZ7vqY'},
+          {name:'Отзыв2',videoID: 'HGSB0Scnazg'}
+        ],
+        globalVideoId:'',
+
         myOptions: {
             navButtons: true,
             centerMode:true,
@@ -67,18 +66,42 @@ export default {
             ]
         }
       }
+    },
+  methods: {
+      getVideoImg(id){
+        return `https://img.youtube.com/vi/${id}/hqdefault.jpg`
+      },
+      open(id,name) {
+        this.$confirm(`<iframe class="fv" width="100%" height="315" src="https://www.youtube.com/embed/${id}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`, name, {
+          dangerouslyUseHTMLString: true,
+          showConfirmButton:false,
+          cancelButtonText: 'Закрыть',
+          beforeClose:function(action, instance, done){
+            done()
+            let iframe = document.querySelector('.fv')
+            let iframeSrc = iframe.src;
+		        iframe.src = iframeSrc;
+
+            console.log('close')
+
+
+          }
+        })
+        ;
+      }
     }
 }
 </script>
 
-
-
-
 <style lang="sass">
   .slide
-    border: 1px solid red
-    width: 400px
-    height: 500px
+    width: 100px
+    height: 300px
+    padding: 0 10px
+    cursor: pointer
+    &__inner
+      user-select: none
+
   .feedback
     h3
       font: 34px 'Montserrat',sans-serif

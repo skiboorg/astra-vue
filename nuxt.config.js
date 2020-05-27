@@ -25,7 +25,8 @@ export default {
   */
   css: [
     '@/assets/styles.sass',
-    './node_modules/element-ui/packages/theme-chalk/src/select.scss'
+    './node_modules/element-ui/packages/theme-chalk/src/select.scss',
+    './node_modules/element-ui/packages/theme-chalk/src/message-box.scss',
 
   ],
   /*
@@ -33,7 +34,8 @@ export default {
   */
   plugins: [
     '~/plugins/vue-agile',
-    '@/plugins/element-ui'
+    '@/plugins/element-ui',
+
   ],
   /*
   ** Nuxt.js dev-modules
