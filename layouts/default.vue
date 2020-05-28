@@ -15,12 +15,12 @@
   import vueSmoothScroll from 'vue2-smooth-scroll';
   import VueTheMask from 'vue-the-mask';
   import VueFriendlyIframe from 'vue-friendly-iframe';
-  import { Select, MessageBox  } from 'element-ui';
+  import { Select, MessageBox, Checkbox, Tooltip  } from 'element-ui';
 
 
 
 
-  Vue.component(Select.name, Select, MessageBox);
+  Vue.component(Select.name, Select, MessageBox, Checkbox, Tooltip);
   Vue.use(vueSmoothScroll)
   Vue.use(VueTheMask)
   Vue.use(VueFriendlyIframe);
@@ -57,6 +57,8 @@
 <style lang="sass">
   body
     overflow-x: hidden
+
+
 
   .container
     max-width: 1290px

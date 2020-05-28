@@ -20,15 +20,15 @@
 
 
     <transition-group class="projects" name="projects" >
-      <div class="project" v-if="currentFilter === project.category || currentFilter === 'all'" v-bind:key="project.title" v-for="project in templates">
+      <div class="project" v-if="currentFilter === project.category || currentFilter === 'vse'" v-bind:key="project.title" v-for="project in templates">
 
-        <img class="project-image" v-bind:src="project.image">
+        <img class="project-image" v-bind:src="img_host+project.image">
 
 
         <p class="project-name">{{project.title}}</p>
         <div class="project-price">
           <p>{{project.price}} руб</p>
-          <span class="btn" @click="previewPage(project.url)" >Просмотр</span>
+          <span class="btn" @click="previewPage(project.uuid)" >Просмотр</span>
 
         </div>
 
@@ -49,7 +49,8 @@
       return{
       //  scrollY:0,
         selectedType:'',
-        currentFilter: 'all',
+        currentFilter: 'vse',
+        img_host:'http://localhost:8000'
         // filters:[
         //   {name: "все", id:'all'},
         //   {name: "интернет-магазин", id:'eshop'},

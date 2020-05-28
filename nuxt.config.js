@@ -19,7 +19,11 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#522EE3' },
+  loading: {
+         color: '#522EE3',
+         height: '5px',
+         throttle: 0
+        },
   /*
   ** Global CSS
   */
@@ -27,6 +31,8 @@ export default {
     '@/assets/styles.sass',
     './node_modules/element-ui/packages/theme-chalk/src/select.scss',
     './node_modules/element-ui/packages/theme-chalk/src/message-box.scss',
+    './node_modules/element-ui/packages/theme-chalk/src/checkbox.scss',
+    './node_modules/element-ui/packages/theme-chalk/src/tooltip.scss',
 
   ],
   /*

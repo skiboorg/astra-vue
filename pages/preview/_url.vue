@@ -3,19 +3,18 @@
     <div class="preview-header">
      <nuxt-link class="btn-return" to="/">На главную</nuxt-link>
       <div class="">
-         <span class="preview__btn phone" @click="test = 'previewFramePhone'"></span>
-      <span class="preview__btn ipad" @click="test = 'previewFrameIpad'"></span>
-      <span class="preview__btn desktop" @click="test = 'previewFrameDesktop'"></span>
-
+        <span class="preview__btn phone" @click="test = 'previewFramePhone'"></span>
+        <span class="preview__btn ipad" @click="test = 'previewFrameIpad'"></span>
+        <span class="preview__btn desktop" @click="test = 'previewFrameDesktop'"></span>
       </div>
       <div class="incart__btn">
-        <span class="btn">Заказать</span>
+        <span class="btn" @click="addToCart">Заказать</span>
       </div>
     </div>
     <div class="loader " v-bind:class="{loaderActiveC : loaderActive }">
         <div class="lds-roller" ><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
       </div>
-     <vue-friendly-iframe :src="previewUrl" :class="test" @iframe-load="onLoad"></vue-friendly-iframe>
+     <vue-friendly-iframe :src="template_info.url" :class="test" @iframe-load="onLoad"></vue-friendly-iframe>
 <!-- -->
   </div>
 
@@ -23,17 +22,33 @@
 
 <script>
 export default {
+  async asyncData({ $axios, params }) {
+  const template_info = await $axios.$get(`/get_template/${params.url}`)
+  return { template_info }
+  },
   data:function(){
       return{
-
-        previewUrl:'http://' + this.$route.params.url,
         test:'previewFrameDesktop',
-          loaderActive:true,
+        loaderActive:true,
+        token:''
       }
-
     },
    mounted(){
-     console.log(this.$route.params.url)
+    console.log(this.template_info)
+    //let csrftoken =document.cookie.match(new RegExp("(?:^|; )" + 'csrftoken'.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"))
+    //this.csrf_token = csrftoken[1]
+     let token = localStorage.getItem('token')
+     console.log('token=', token )
+      if (!token){
+        let tt = `f${(+new Date).toString(16)}`;
+        console.log(tt)
+        localStorage.setItem('token', tt)
+        this.token = tt
+      }else {
+        this.token  = token
+      }
+
+
 
    },
   methods:{
@@ -41,7 +56,23 @@ export default {
       console.log('load')
         this.loaderActive = false
     },
+    addToCart: function () {
 
+        this.$axios.$get(`/add_to_cart/${this.template_info.uuid}/${this.token}`)
+        .then(() => {
+
+          this.$confirm('Шаблон добавлен в заказ', {
+          confirmButtonText: 'Открыть заказ',
+          cancelButtonText: 'На главную',
+          type: 'info',
+          center: true
+        }).then(() => {
+          this.$router.push('/order')
+        }).catch(() => {
+          this.$router.push('/')
+        });
+        })
+    }
   }
 }
 </script>
@@ -60,8 +91,6 @@ export default {
     justify-content: center
     &.loaderActiveC
       display: flex
-
-
   .preview-header
     padding: 10px
     background: #F3F3F3
