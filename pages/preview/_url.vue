@@ -6,6 +6,7 @@
          <span class="preview__btn phone" @click="test = 'previewFramePhone'"></span>
       <span class="preview__btn ipad" @click="test = 'previewFrameIpad'"></span>
       <span class="preview__btn desktop" @click="test = 'previewFrameDesktop'"></span>
+
       </div>
       <div class="incart__btn">
         <span class="btn">Заказать</span>
@@ -25,7 +26,7 @@ export default {
   data:function(){
       return{
 
-        previewUrl:'https://www.pexels.com/search/tiger',
+        previewUrl:'http://' + this.$route.params.url,
         test:'previewFrameDesktop',
           loaderActive:true,
       }
@@ -33,6 +34,7 @@ export default {
     },
    mounted(){
      console.log(this.$route.params.url)
+
    },
   methods:{
     onLoad(){

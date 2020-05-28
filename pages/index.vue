@@ -17,6 +17,18 @@
   import Feedback from '@/components/Feedback';
  import Header from '@/components/Header';
   export default {
+      async fetch({store}){
+          console.log('start store')
+          if (store.getters['filters/filters'].length === 0){
+              await store.dispatch('filters/fetch')
+          }
+          if (store.getters['templates/templates'].length === 0){
+              await store.dispatch('templates/fetch')
+          }
+          console.log(store.getters['filters/filters'])
+          console.log(store.getters['templates/templates'])
+      },
+
     components:{
       Header,
       SortedList,

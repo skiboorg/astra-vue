@@ -20,7 +20,7 @@
 
 
     <transition-group class="projects" name="projects" >
-      <div class="project" v-if="currentFilter === project.category || currentFilter === 'all'" v-bind:key="project.title" v-for="project in projects">
+      <div class="project" v-if="currentFilter === project.category || currentFilter === 'all'" v-bind:key="project.title" v-for="project in templates">
 
         <img class="project-image" v-bind:src="project.image">
 
@@ -41,43 +41,55 @@
 
 </template>
 <script>
+
   export default {
+
+
     data:function(){
       return{
       //  scrollY:0,
         selectedType:'',
         currentFilter: 'all',
-        filters:[
-          {name: "все", id:'all'},
-          {name: "интернет-магазин", id:'eshop'},
-          {name: "УСлуги для бизнеса", id:'bizserv'},
-          {name: "Красота", id:'beaty'},
-          {name: "инфобизнес", id:'infobiz'},
-          {name: "розничная продажа", id:'sell'},
-          {name: "Ремонт, строительство", id:'repair'},
-          {name: "Агентства недвижимости", id:'agency'},
-          {name: "Ремонт авто", id:'carrepair'},
-          {name: "Доставка еды", id:'food'},
-          {name: "Авто запчасти", id:'carparts'},
-        ],
-        projects: [
-          {id:1,title: "carpart1s",price:2000, image: "http://placehold.it/304x190", category: 'carparts',url:'localhost:8000'},
-          {id:2,title: "fo2od",price:2000, image: "http://placehold.it/304x190", category: 'food',url:'localhost:8000'},
-          {id:3,title: "fo3od",price:2000, image: "http://placehold.it/304x190", category: 'food',url:'localhost:8000'},
-          {id:4,title: "ca4rrepair",price:2000, image: "http://placehold.it/304x190", category: 'carrepair',url:'localhost:8000'},
-          {id:5,title: "car5repair",price:2000, image: "http://placehold.it/304x190", category: 'carrepair',url:'localhost:8000'},
-          {id:6,title: "sel6l",price:2000, image: "http://placehold.it/304x190", category: 'sell',url:'localhost:8000'},
-          {id:7,title: "sel7l",price:2000, image: "http://placehold.it/304x190", category: 'sell',url:'localhost:8000'},
-          {id:8,title: "in8fobiz",price:2000, image: "http://placehold.it/304x190", category: 'infobiz',url:'localhost:8000'},
-          {id:9,title: "be9aty",price:2000, image: "http://placehold.it/304x190", category: 'beaty',url:'localhost:8000'},
-          {id:10,title: "bi0zserv",price:2000, image: "http://placehold.it/304x190", category: 'bizserv',url:'localhost:8000'},
-          {id:11,title: "ca-rrepair",price:2000, image: "http://placehold.it/304x190", category: 'carrepair',url:'localhost:8000'},
-          {id:12,title: "ca=rrepair",price:2000, image: "http://placehold.it/304x190", category: 'carrepair',url:'localhost:8000'},
-          {id:13,title: "sye7ll",price:2000, image: "http://placehold.it/304x190", category: 'sell',url:'localhost:8000'},
-          {id:14,title: "stell",price:2000, image: "http://placehold.it/304x190", category: 'sell',url:'localhost:8000'},
-        ]
+        // filters:[
+        //   {name: "все", id:'all'},
+        //   {name: "интернет-магазин", id:'eshop'},
+        //   {name: "УСлуги для бизнеса", id:'bizserv'},
+        //   {name: "Красота", id:'beaty'},
+        //   {name: "инфобизнес", id:'infobiz'},
+        //   {name: "розничная продажа", id:'sell'},
+        //   {name: "Ремонт, строительство", id:'repair'},
+        //   {name: "Агентства недвижимости", id:'agency'},
+        //   {name: "Ремонт авто", id:'carrepair'},
+        //   {name: "Доставка еды", id:'food'},
+        //   {name: "Авто запчасти", id:'carparts'},
+        // ],
+        // projects: [
+        //   {id:1,title: "carpart1s",price:2000, image: "http://placehold.it/304x190", category: 'carparts',url:'localhost:8000'},
+        //   {id:2,title: "fo2od",price:2000, image: "http://placehold.it/304x190", category: 'food',url:'localhost:8000'},
+        //   {id:3,title: "fo3od",price:2000, image: "http://placehold.it/304x190", category: 'food',url:'localhost:8000'},
+        //   {id:4,title: "ca4rrepair",price:2000, image: "http://placehold.it/304x190", category: 'carrepair',url:'localhost:8000'},
+        //   {id:5,title: "car5repair",price:2000, image: "http://placehold.it/304x190", category: 'carrepair',url:'localhost:8000'},
+        //   {id:6,title: "sel6l",price:2000, image: "http://placehold.it/304x190", category: 'sell',url:'localhost:8000'},
+        //   {id:7,title: "sel7l",price:2000, image: "http://placehold.it/304x190", category: 'sell',url:'localhost:8000'},
+        //   {id:8,title: "in8fobiz",price:2000, image: "http://placehold.it/304x190", category: 'infobiz',url:'localhost:8000'},
+        //   {id:9,title: "be9aty",price:2000, image: "http://placehold.it/304x190", category: 'beaty',url:'localhost:8000'},
+        //   {id:10,title: "bi0zserv",price:2000, image: "http://placehold.it/304x190", category: 'bizserv',url:'localhost:8000'},
+        //   {id:11,title: "ca-rrepair",price:2000, image: "http://placehold.it/304x190", category: 'carrepair',url:'localhost:8000'},
+        //   {id:12,title: "ca=rrepair",price:2000, image: "http://placehold.it/304x190", category: 'carrepair',url:'localhost:8000'},
+        //   {id:13,title: "sye7ll",price:2000, image: "http://placehold.it/304x190", category: 'sell',url:'localhost:8000'},
+        //   {id:14,title: "stell",price:2000, image: "http://placehold.it/304x190", category: 'sell',url:'localhost:8000'},
+        // ]
       }
     },
+      computed:{
+          filters(){
+              return this.$store.getters['filters/filters']
+          },
+          templates(){
+              return this.$store.getters['templates/templates']
+          }
+      },
+
     methods: {
       setFilter: function(filter) {
         this.currentFilter = filter;
