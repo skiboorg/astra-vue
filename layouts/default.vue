@@ -15,12 +15,12 @@
   import vueSmoothScroll from 'vue2-smooth-scroll';
   import VueTheMask from 'vue-the-mask';
   import VueFriendlyIframe from 'vue-friendly-iframe';
-  import { Select, MessageBox, Checkbox, Tooltip  } from 'element-ui';
+  import { Select, MessageBox, Checkbox, Tooltip , Radio, Dialog } from 'element-ui';
 
 
 
 
-  Vue.component(Select.name, Select, MessageBox, Checkbox, Tooltip);
+  Vue.component(Select.name, Select, MessageBox, Checkbox, Tooltip, Radio, Dialog);
   Vue.use(vueSmoothScroll)
   Vue.use(VueTheMask)
   Vue.use(VueFriendlyIframe);
