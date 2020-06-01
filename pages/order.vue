@@ -3,7 +3,7 @@
     <header class="header">
       <div class="header__wrapper">
         <div class="header__top">
-          <div class="header__top-logo">ASTRAPROMO</div>
+          <div class="header__top-logo"> <nuxt-link to="/">ASTRAPROMO</nuxt-link>  </div>
           <div class="header__top-icons">
             <a href=""> <img src="/wa.png" alt=""></a>
             <a href=""><img src="/vb.png" alt=""></a>
@@ -20,23 +20,17 @@
       <div class="container">
         <h3>Ваш заказ</h3>
 
+
         <div class="order-wrapper">
-          <div class="order-item">
-            <img class="order-item__img" src="http://placehold.it/300x190" alt="">
+          <div class="order-item" v-for="(item,index) in cart">
+            <img class="order-item__img" :src="'http://localhost:8000' + item.image" alt="">
             <div class="order-item__group">
-              <p class="order-item__name">Lorem ipsum.</p>
-              <p class="order-item__price">2000 руб</p>
+              <p class="order-item__name">{{item.title}}</p>
+              <p class="order-item__price">{{item.price}} руб</p>
             </div>
-            <p class="order-item__delete">удалить</p>
+            <p class="order-item__delete" @click="delItem(index)">удалить {{index}}</p>
           </div>
-          <div class="order-item">
-            <img class="order-item__img" src="http://placehold.it/300x190" alt="">
-            <div class="order-item__group">
-              <p class="order-item__name">Lorem ipsum.</p>
-              <p class="order-item__price">2000 руб</p>
-            </div>
-            <p class="order-item__delete">удалить</p>
-          </div>
+
         </div>
         <h4>С эти товаром покупают:</h4>
 
@@ -69,8 +63,8 @@
          <h4>Номер телефона</h4>
 
         <div class="order-form">
-          <input v-mask="'+7 (###) ### ## ##'" type="text" placeholder="Телефон">
-          <span class="btn">Заказать</span>
+          <input v-mask="'+7 (###) ### ## ##'" v-model="phone" type="text" placeholder="Телефон">
+          <span class="btn" :class="{btnDisabled : !phone , btnDisabled : !payment }">Заказать</span>
         </div>
 
       </div>
@@ -88,19 +82,43 @@
             return{
                 domainChecked:false,
                 hostingChecked:false,
-                payment:''
+                phone:'',
+                payment:'',
+                cart:[]
             }
         },
-
-
+        methods:{
+            delItem: function (id) {
+                // console.log('del',id)
+                // this.cart.splice(id,1)
+                // console.log(this.cart)
+                this.$store.dispatch('cart/delCartItem', id)
+            }
+        },
         components:{
             Header,
+        },
+        async mounted() {
+            let token = localStorage.getItem('token')
+     console.log('token=', token )
+      if (!token){
+        let tt = `f${(+new Date).toString(16)}`;
+        console.log(tt)
+        localStorage.setItem('token', tt)
+        this.token = tt
+          this.cart = await this.$axios.$get(`/get_cart/${tt}`)
+      }else {
+        this.token  = token
+        this.cart = await this.$axios.$get(`/get_cart/${token}`)
+      }
 
+            console.log('cart',this.cart)
+            this.$store.dispatch('cart/getCartItems', this.cart)
         }
     }
 </script>
 
-<style lang=sass>
+<style lang=sass scoped>
   .question
     display: flex
     align-items: center
@@ -160,19 +178,23 @@
       &-logo
         flex-basis: 250px
         font: 16px 'Montserrat', sans-serif
+        opacity: 1
       &-icons
         flex-basis: 250px
+        opacity: 1
         img
           margin-right: 10px
       &-link
         font: 16px 'Gotham Pro',sans-serif
         cursor: pointer
+        opacity: 1
         a
           color: inherit
       &-phone
         flex-grow: 1
         text-align: right
         font: 20px 'Montserrat', sans-serif
+        opacity: 1
         a
           color: inherit
 
@@ -236,7 +258,9 @@
         span
           font-size: 20px
           padding: 20px 0
-
+  .btnDisabled
+    opacity: .8
+    pointer-events: none
   .addition-item
     display: flex
     align-items: center
@@ -251,51 +275,5 @@
     &__price
       font: 20px 'Gotham Pro Bold',sans-serif
 
-  .el-tooltip__popper
-    font: 10px 'Gotham Pro',sans-serif
 
-  .el-tooltip__popper.is-light
-    background: #F1F1F1
-    border: 1px solid #F1F1F1
-
-  .el-tooltip__popper .popper__arrow
-    display: none
-
-  .el-checkbox
-    margin-right: 20px
-  .el-checkbox__inner
-    width: 30px
-    height: 30px
-    &::after
-      height: 13px
-      left: 12px
-      position: absolute
-      top: 6px
-    &:hover
-      border-color: #522EE3
-  .el-checkbox__input
-    margin-right: 20px
-
-  .el-checkbox__label, .el-radio__label
-    font: 16px 'Gotham Pro',sans-serif
-
-  .el-checkbox__input.is-checked + .el-checkbox__label
-    color: #522EE3
-
-  .el-checkbox__input.is-checked .el-checkbox__inner
-    background-color: #522EE3
-    border-color: #522EE3
-  .el-radio__inner
-    width: 30px
-    height: 30px
-    &:hover
-      border-color: #522EE3
-  .el-radio__input.is-checked .el-radio__inner::after
-    transform: translate(-50%, -50%) scale(3)
-
-  .el-radio__input.is-checked .el-radio__inner
-    background-color: #522EE3
-    border-color: #522EE3
-  .el-radio__input.is-checked + .el-radio__label
-    color: #522EE3
 </style>

@@ -8,8 +8,13 @@
         <span class="preview__btn desktop" @click="test = 'previewFrameDesktop'"></span>
       </div>
       <div class="incart__btn">
+
+          <nuxt-link style="margin-right: 10px" class="btn" to="/order">
+            Открыть заказ
+          </nuxt-link>
+
         <span class="btn" @click="addToCart">Заказать</span>
-      </div>
+              </div>
     </div>
     <div class="loader " v-bind:class="{loaderActiveC : loaderActive }">
         <div class="lds-roller" ><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
@@ -77,7 +82,7 @@ export default {
 }
 </script>
 
-<style lang="sass">
+<style lang="sass" >
   .loader
     position: absolute
     width: 100vw
@@ -123,8 +128,10 @@ export default {
 
 
   .incart__btn
-    flex-basis: 100px
-    span
+    flex-basis: 200px
+    display: flex
+
+    .bnt
       width: 100%
       padding: 15px 0
   .preview__btn

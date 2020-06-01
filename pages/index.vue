@@ -25,8 +25,12 @@
           if (store.getters['templates/templates'].length === 0){
               await store.dispatch('templates/fetch')
           }
-          console.log(store.getters['filters/filters'])
-          console.log(store.getters['templates/templates'])
+
+
+          console.log('filters',store.getters['filters/filters'])
+          console.log('templates',store.getters['templates/templates'])
+          console.log('cart',store.getters['cart/cart'])
+
       },
 
     components:{

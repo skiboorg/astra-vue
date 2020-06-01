@@ -8,18 +8,15 @@
             <img :src="getVideoImg(f.videoID)" alt="">
           </div>
         </div>
-
-    </agile>
+      </agile>
       <h4>Если у вас появились вопросы задайте их нам </h4>
       <div class="feedback-icons">
-          <a href=""> <img src="/wa.png" alt=""></a>
-          <a href=""><img src="/vb.png" alt=""></a>
-        </div>
+        <a href=""> <img src="/wa.png" alt=""></a>
+        <a href=""><img src="/vb.png" alt=""></a>
+      </div>
       <div class="video-modal">
-
       </div>
     </div>
-
   </div>
 </template>
 

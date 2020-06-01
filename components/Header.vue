@@ -67,6 +67,7 @@
 <style lang="sass">
   .letter
     display: inline-block
+    opacity: 0
 
   .header
     background: #F3F3F3
@@ -93,35 +94,43 @@
       &-logo
         flex-basis: 250px
         font: 16px 'Montserrat', sans-serif
+        opacity: 0
       &-icons
         flex-basis: 250px
+        opacity: 0
         img
           margin-right: 10px
       &-link
         font: 16px 'Gotham Pro',sans-serif
         cursor: pointer
+        opacity: 0
         a
           color: inherit
       &-phone
         flex-grow: 1
         text-align: right
         font: 20px 'Montserrat', sans-serif
+        opacity: 0
         a
           color: inherit
     &__offer
       max-width: 650px
+
       h1
         font: 34px 'Montserrat', sans-serif
         text-transform: uppercase
         line-height: 52px
         margin-bottom: 30px
+
       p
         font: 23px 'Gotham Pro',sans-serif
         line-height: 35px
         margin-bottom: 40px
+        opacity: 0
       &-form
         display: flex
         align-items: center
+        opacity: 0
         &-input
           border: none
           background: #fff
