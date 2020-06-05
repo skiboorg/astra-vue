@@ -55,12 +55,12 @@
           </div>
         </div>
 
-         <h4>Варианты оплаты</h4>
+        <h4>Варианты оплаты</h4>
         <div class="payment-type">
-           <el-radio v-model="payment" label="Вариант1">Вариант 1</el-radio>
+          <el-radio v-model="payment" label="Вариант1">Вариант 1</el-radio>
           <el-radio v-model="payment" label="Вариант2">Вариант 2</el-radio>
         </div>
-         <h4>Номер телефона</h4>
+        <h4>Номер телефона</h4>
 
         <div class="order-form">
           <input v-mask="'+7 (###) ### ## ##'" v-model="phone" type="text" placeholder="Телефон">
@@ -84,19 +84,19 @@
                 hostingChecked:false,
                 phone:'',
                 payment:'',
-                token:''
+
 
             }
         },
-         mounted() {
-            this.token = localStorage.getItem('token')
+        mounted() {
 
-                  this.$store.dispatch('cart/getCartItems',this.token)
-                 
-         },
+            console.log('store token', this.$store.getters['token/token'])
+            this.$store.dispatch('cart/getCartItems',this.$store.getters['token/token'])
+
+        },
         computed:{
             cart(){
-                      return this.$store.getters['cart/cart']
+                return this.$store.getters['cart/cart']
 
 
             },
@@ -113,23 +113,23 @@
         components:{
             Header,
         },
-     //    async mounted() {
-     //        // let token = localStorage.getItem('token')
-     // ///console.log('token=', token )
-     // //  if (!token){
-     // //    let tt = `f${(+new Date).toString(16)}`;
-     // //    console.log(tt)
-     // //    localStorage.setItem('token', tt)
-     // //    this.token = tt
-     // //      this.cart = await this.$axios.$get(`/get_cart/${tt}`)
-     // //  }else {
-     // //    this.token  = token
-     // //    this.cart = await this.$axios.$get(`/get_cart/${token}`)
-     // //  }
-     //
-     //        // console.log('cart',this.cart)
-     //        // this.$store.dispatch('cart/getCartItems', this.cart)
-     //    }
+        //    async mounted() {
+        //        // let token = localStorage.getItem('token')
+        // ///console.log('token=', token )
+        // //  if (!token){
+        // //    let tt = `f${(+new Date).toString(16)}`;
+        // //    console.log(tt)
+        // //    localStorage.setItem('token', tt)
+        // //    this.token = tt
+        // //      this.cart = await this.$axios.$get(`/get_cart/${tt}`)
+        // //  }else {
+        // //    this.token  = token
+        // //    this.cart = await this.$axios.$get(`/get_cart/${token}`)
+        // //  }
+        //
+        //        // console.log('cart',this.cart)
+        //        // this.$store.dispatch('cart/getCartItems', this.cart)
+        //    }
     }
 </script>
 
@@ -144,151 +144,151 @@
     border-radius: 50%
     background: #F1F1F1
     cursor: pointer
-  .payment-type
-    margin-bottom: 40px
+    .payment-type
+      margin-bottom: 40px
 
-  .order-form
-     display: flex
-     flex-wrap: wrap
-     align-items: center
-     justify-content: center
-     max-width: 850px
-     margin-bottom: 40px
-     input
-       text-align: center
-       border-radius: 10px
-       border: 1px solid #000000
-       height: 60px
-       font: 18px 'Gotham Pro Bold',sans-serif
-       box-sizing: border-box
-       flex-basis: 500px
-       margin-right: 20px
-       &:focus
-          outline: none
-     span
-       font: 25px 'Gotham Pro Bold',sans-serif
-       padding: 16px 0
-  .header
-    background: #F3F3F3
-    height: 100px
-    margin-bottom: 60px
-    padding: 0 10px
-    position: relative
-    z-index: 1
-    &-img
-      position: absolute
-      top: 0
-      right: 0
-      z-index: -1
-    &__wrapper
-      max-width: 1440px
-      margin: 0 auto
-      margin-bottom: 70px
-    &__top
+    .order-form
       display: flex
-      justify-content: space-between
+      flex-wrap: wrap
       align-items: center
-      padding-top: 25px
-      margin-bottom: 70px
-      &-logo
-        flex-basis: 250px
-        font: 16px 'Montserrat', sans-serif
-        opacity: 1
-      &-icons
-        flex-basis: 250px
-        opacity: 1
-        img
-          margin-right: 10px
-      &-link
-        font: 16px 'Gotham Pro',sans-serif
-        cursor: pointer
-        opacity: 1
-        a
-          color: inherit
-      &-phone
-        flex-grow: 1
-        text-align: right
-        font: 20px 'Montserrat', sans-serif
-        opacity: 1
-        a
-          color: inherit
-
-  .order
-    h3
-      font: 34px 'Montserrat',sans-serif
-      line-height: 52px
-      margin-bottom: 50px
-      text-transform: uppercase
-    h4
-      font: 28px 'Gotham Pro Bold',sans-serif
-      margin-bottom: 35px
-    &-wrapper
-    &-item
-      position: relative
-      display: flex
-      align-items: center
-      justify-content: space-between
-      max-width: 970px
-      margin-bottom: 50px
-      &__img
+      justify-content: center
+      max-width: 850px
+      margin-bottom: 40px
+      input
+        text-align: center
+        border-radius: 10px
+        border: 1px solid #000000
+        height: 60px
+        font: 18px 'Gotham Pro Bold',sans-serif
+        box-sizing: border-box
+        flex-basis: 500px
         margin-right: 20px
-        width: 170px
-        height: 110px
-        object-fit: cover
-      &__name
-        font: 16px 'Gotham Pro Bold',sans-serif
-      &__price
-        font: 20px 'Gotham Pro Bold',sans-serif
-      &__delete
-        font: 12px 'Gotham Pro',sans-serif
+        &:focus
+          outline: none
+      span
+        font: 25px 'Gotham Pro Bold',sans-serif
+        padding: 16px 0
+    .header
+      background: #F3F3F3
+      height: 100px
+      margin-bottom: 60px
+      padding: 0 10px
+      position: relative
+      z-index: 1
+      &-img
+        position: absolute
+        top: 0
+        right: 0
+        z-index: -1
+      &__wrapper
+        max-width: 1440px
+        margin: 0 auto
+        margin-bottom: 70px
+      &__top
+        display: flex
+        justify-content: space-between
+        align-items: center
+        padding-top: 25px
+        margin-bottom: 70px
+        &-logo
+          flex-basis: 250px
+          font: 16px 'Montserrat', sans-serif
+          opacity: 1
+        &-icons
+          flex-basis: 250px
+          opacity: 1
+          img
+            margin-right: 10px
+        &-link
+          font: 16px 'Gotham Pro',sans-serif
+          cursor: pointer
+          opacity: 1
+          a
+            color: inherit
+        &-phone
+          flex-grow: 1
+          text-align: right
+          font: 20px 'Montserrat', sans-serif
+          opacity: 1
+          a
+            color: inherit
+
+    .order
+      h3
+        font: 34px 'Montserrat',sans-serif
+        line-height: 52px
+        margin-bottom: 50px
         text-transform: uppercase
-        color: #6D6D6D
-        cursor: pointer
-      &__group
-        flex-basis: 460px
+      h4
+        font: 28px 'Gotham Pro Bold',sans-serif
+        margin-bottom: 35px
+      &-wrapper
+      &-item
+        position: relative
         display: flex
         align-items: center
         justify-content: space-between
-        margin-right: 20px
+        max-width: 970px
+        margin-bottom: 50px
+        &__img
+          margin-right: 20px
+          width: 170px
+          height: 110px
+          object-fit: cover
+        &__name
+          font: 16px 'Gotham Pro Bold',sans-serif
+        &__price
+          font: 20px 'Gotham Pro Bold',sans-serif
+        &__delete
+          font: 12px 'Gotham Pro',sans-serif
+          text-transform: uppercase
+          color: #6D6D6D
+          cursor: pointer
+        &__group
+          flex-basis: 460px
+          display: flex
+          align-items: center
+          justify-content: space-between
+          margin-right: 20px
 
-    @media (max-width: 520px)
-      .order
-        &-item
-          flex-wrap: wrap
+      @media (max-width: 520px)
+        .order
+          &-item
+            flex-wrap: wrap
 
-          &__img
+            &__img
+              margin-right: 0
+              width: 100%
+              height: 100%
+              margin-bottom: 20px
+            &__delete
+              position: absolute
+              top: -20px
+              right: 0
+      @media (max-width: 520px)
+        .order-form
+          input
             margin-right: 0
-            width: 100%
-            height: 100%
             margin-bottom: 20px
-          &__delete
-            position: absolute
-            top: -20px
-            right: 0
-    @media (max-width: 520px)
-      .order-form
-        input
-          margin-right: 0
-          margin-bottom: 20px
-        span
-          font-size: 20px
-          padding: 20px 0
-  .btnDisabled
-    opacity: .8
-    pointer-events: none
-  .addition-item
-    display: flex
-    align-items: center
-    justify-content: space-between
-    margin-bottom: 60px
-    max-width: 630px
-    &__checkbox
+          span
+            font-size: 20px
+            padding: 20px 0
+    .btnDisabled
+      opacity: .8
+      pointer-events: none
+    .addition-item
       display: flex
       align-items: center
       justify-content: space-between
-      flex-basis: 170px
-    &__price
-      font: 20px 'Gotham Pro Bold',sans-serif
+      margin-bottom: 60px
+      max-width: 630px
+      &__checkbox
+        display: flex
+        align-items: center
+        justify-content: space-between
+        flex-basis: 170px
+      &__price
+        font: 20px 'Gotham Pro Bold',sans-serif
 
 
 </style>

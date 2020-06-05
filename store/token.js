@@ -14,6 +14,7 @@ export const actions ={
      const token =  `f${(+new Date).toString(16)}`
       localStorage.setItem('token', token)
      commit('setToken',token)
+      console.log('token',token)
   },
 
 }
