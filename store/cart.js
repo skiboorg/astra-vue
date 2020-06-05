@@ -14,9 +14,12 @@ export const mutations ={
 
 export const actions ={
 
-  getCartItems({commit},items){
-    console.log('items',items)
-    commit('setCart',items)
+   async getCartItems({commit},token){
+
+
+    const cart_items = await this.$axios.$get(`/get_cart/${token}`)
+
+     commit('setCart',cart_items)
   },
   delCartItem({commit,state},id){
 

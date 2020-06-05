@@ -84,8 +84,23 @@
                 hostingChecked:false,
                 phone:'',
                 payment:'',
-                cart:[]
+                token:''
+
             }
+        },
+         mounted() {
+            this.token = localStorage.getItem('token')
+
+                  this.$store.dispatch('cart/getCartItems',this.token)
+                 
+         },
+        computed:{
+            cart(){
+                      return this.$store.getters['cart/cart']
+
+
+            },
+
         },
         methods:{
             delItem: function (id) {
@@ -98,23 +113,23 @@
         components:{
             Header,
         },
-        async mounted() {
-            let token = localStorage.getItem('token')
-     console.log('token=', token )
-      if (!token){
-        let tt = `f${(+new Date).toString(16)}`;
-        console.log(tt)
-        localStorage.setItem('token', tt)
-        this.token = tt
-          this.cart = await this.$axios.$get(`/get_cart/${tt}`)
-      }else {
-        this.token  = token
-        this.cart = await this.$axios.$get(`/get_cart/${token}`)
-      }
-
-            console.log('cart',this.cart)
-            this.$store.dispatch('cart/getCartItems', this.cart)
-        }
+     //    async mounted() {
+     //        // let token = localStorage.getItem('token')
+     // ///console.log('token=', token )
+     // //  if (!token){
+     // //    let tt = `f${(+new Date).toString(16)}`;
+     // //    console.log(tt)
+     // //    localStorage.setItem('token', tt)
+     // //    this.token = tt
+     // //      this.cart = await this.$axios.$get(`/get_cart/${tt}`)
+     // //  }else {
+     // //    this.token  = token
+     // //    this.cart = await this.$axios.$get(`/get_cart/${token}`)
+     // //  }
+     //
+     //        // console.log('cart',this.cart)
+     //        // this.$store.dispatch('cart/getCartItems', this.cart)
+     //    }
     }
 </script>
 

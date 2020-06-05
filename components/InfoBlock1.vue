@@ -1,12 +1,33 @@
-<template>
-  <div class="info-block">
-    <div class="info-block-inner container">
+<template >
+  <div class="info-block" v-observe-visibility="visibilityChanged">
+    <div class="info-block-inner container" :class=" {fadeIn : isVisible ,fadeOut : !isVisible}">
        <h3>Консультации по продвижению в интернете</h3>
       <p>На консультации наши специалисты помогут вам улучшить ваш интернет-маркетинг или запустить его с нуля</p>
       <img src="/infoblock_m.png" alt="">
     </div>
   </div>
 </template>
+
+
+<script>
+
+  export default {
+       data:function(){
+           return{
+              isVisible:false
+          }
+       },
+
+
+      methods: {
+      visibilityChanged (isVisible, entry) {
+        this.isVisible = isVisible
+          console.log(this.isVisible)
+        console.log(entry)
+    },
+  },
+  }
+</script>
 
 <style lang="sass">
   .info-block
@@ -52,6 +73,31 @@
       img
         display: block
 
+  .fadeIn
+    animation: fade-in-right 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both
+    animation-delay: 1s
+
+  .fadeOut
+    animation: fade-out-right 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both
+
+
+  @keyframes fade-in-right
+    0%
+      transform: translateX(50px)
+      opacity: 0
+    100%
+      transform: translateX(0)
+      opacity: 1
+
+
+
+  @keyframes fade-out-right
+    0%
+      transform: translateX(0px)
+      opacity: 1
+    100%
+      transform: translateX(50px)
+      opacity: 0
 
 
 </style>

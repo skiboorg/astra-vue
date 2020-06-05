@@ -17,7 +17,9 @@
     import VueTheMask from 'vue-the-mask';
     import VueFriendlyIframe from 'vue-friendly-iframe';
     import { Select, MessageBox, Checkbox, Tooltip , Radio, Dialog } from 'element-ui';
+    import VueObserveVisibility from 'vue-observe-visibility'
 
+    Vue.use(VueObserveVisibility)
 
 
 

@@ -16,7 +16,7 @@
         </ul>
       </div>
     </div>
-     <div class="consultation-item">
+    <div class="consultation-item">
       <div class="consultation-item__left"><p>Для тех, у кого уже есть сайт:</p></div>
       <div class="consultation-item__right">
         <ul>
@@ -27,7 +27,7 @@
         </ul>
       </div>
     </div>
-     <div class="consultation-item no-border">
+    <div class="consultation-item no-border">
       <div class="consultation-item__left"><p>Для тех, кто уже запускал рекламу:</p></div>
       <div class="consultation-item__right">
         <ul>
@@ -39,7 +39,7 @@
       </div>
     </div>
     <h3>Как проходит консультация</h3>
-    <div class="consultation-steps">
+    <div class="consultation-steps" v-observe-visibility="visibilityStepsChanged">
       <div class="consultation-step">
         <p class="consultation-step__number">01</p>
         <p class="consultation-step__text">Вы оставляете заявку</p>
@@ -73,53 +73,51 @@
 
 <script>
 
-  import Splitter from 'split-html-to-chars'
-  import { TimelineLite, Back,TimelineMax,Elastic } from 'gsap'
-  const tl = new TimelineMax({paused: true})
-  export default {
+    import {Elastic, TimelineMax} from 'gsap'
 
-     data:function(){
-      return{
-        scrollY:0,
-        targetEl:'',
-      }
+    const tl = new TimelineMax()
+    export default {
 
-    },
-    watch:{
-      scrollY(val){
+        data:function(){
+            return{
+                scrollY:0,
+                targetEl:'',
+                isVisible:false
+            }
 
-        if (this.targetEl .offsetTop  - this.targetEl .scrollHeight - this.targetEl.getBoundingClientRect().height < this.scrollY ){
-          console.log('done')
-          tl.resume()
+        },
+        methods: {
+            visibilityStepsChanged (isVisible, entry) {
+                this.isVisible = isVisible
+                console.log(this.isVisible)
+                console.log(entry)
+                let els1 = document.querySelectorAll(".consultation-step");
+                if (isVisible){
+                     tl.set(els1,{x:-100,opacity:0});
+                tl
+                    .staggerTo(els1,1,{x:0,opacity:1,ease: Elastic.easeOut.config(1, 0.3)},0.15)
+                }
 
-        }else {
+            },
+        },
+
+
+
+        mounted(){
+
+
+
+            // let els = document.querySelectorAll(".js-split");
+            // [].forEach.call(els, function(el) {
+            //   // outerHTML, thats *important*, no direct text nodes should be in parsed HTML
+            //   el.outerHTML = Splitter(el.outerHTML, '<span class="letter">$</span>');
+            // });
+
+
+
 
         }
-      }
-    },
-
-
-    mounted(){
-        this.targetEl = document.querySelector('.consultation-steps')
-        window.addEventListener('scroll', (event) => {
-        this.scrollY = Math.round(window.scrollY);
-
-      });
-
-      // let els = document.querySelectorAll(".js-split");
-      // [].forEach.call(els, function(el) {
-      //   // outerHTML, thats *important*, no direct text nodes should be in parsed HTML
-      //   el.outerHTML = Splitter(el.outerHTML, '<span class="letter">$</span>');
-      // });
-
-      let els1 = document.querySelectorAll(".consultation-step");
-      tl.set(els1,{x:-100,opacity:0});
-      tl
-        .staggerTo(els1,1,{x:0,opacity:1,ease: Elastic.easeOut.config(1, 0.3)},0.05)
-
-
-  }
-  }
+    }
 </script>
 
 <style lang="sass">
@@ -152,65 +150,66 @@
             margin-bottom: 20px
             &:last-child
               margin-bottom: 0
-  .consultation-steps
-    display: grid
-    grid-template-columns: repeat(auto-fill,minmax(200px,1fr))
-    grid-gap: 20px
-    margin-bottom: 60px
+    .consultation-steps
+      display: grid
+      grid-template-columns: repeat(auto-fill,minmax(200px,1fr))
+      grid-gap: 20px
+      margin-bottom: 60px
 
-  .consultation-step
-    padding: 50px 25px
-    border: 1px solid #000000
-    height: 350px
-    &__number
-      font: 37px 'Gotham Pro Bold',sans-serif
-      margin-bottom: 30px
-    &__text
-      font: 16px 'Gotham Pro',sans-serif
-  .consultation-price
-    display: flex
-    flex-wrap: wrap
-    align-items: center
-    &__text
-      font: 23px 'Gotham Pro Bold',sans-serif
-      color: #522EE3
-      flex-basis: 230px
-      margin-right: 100px
-    &__summ
-      font: 55px 'Gotham Pro Bold',sans-serif
-      color: #522EE3
-  @media (max-width: 520px)
-    .consultation
-      margin-bottom: 50px
-      h3
-        font-size: 20px
-        line-height: 32px
-        margin-bottom: 40px
-      &-item
-        padding-bottom: 30px
-        margin-bottom: 30px
-        &__left
-          p
-            font-size: 18px
-            line-height: 35px
-            margin-bottom: 15px
-        &__right
-          ul
-            li
-              font-size: 16px
-              line-height: 25px
-              margin-bottom: 10px
-
-    .consultation-price
-      &__text
-        margin-bottom: 15px
-      &__summ
-        font-size: 40px
     .consultation-step
-      height: 200px
-      padding: 30px 15px
+      padding: 50px 25px
+      border: 1px solid #000000
+      height: 350px
+      opacity: 0
       &__number
-        margin-bottom: 15px
+        font: 37px 'Gotham Pro Bold',sans-serif
+        margin-bottom: 30px
+      &__text
+        font: 16px 'Gotham Pro',sans-serif
+    .consultation-price
+      display: flex
+      flex-wrap: wrap
+      align-items: center
+      &__text
+        font: 23px 'Gotham Pro Bold',sans-serif
+        color: #522EE3
+        flex-basis: 230px
+        margin-right: 100px
+      &__summ
+        font: 55px 'Gotham Pro Bold',sans-serif
+        color: #522EE3
+    @media (max-width: 520px)
+      .consultation
+        margin-bottom: 50px
+        h3
+          font-size: 20px
+          line-height: 32px
+          margin-bottom: 40px
+        &-item
+          padding-bottom: 30px
+          margin-bottom: 30px
+          &__left
+            p
+              font-size: 18px
+              line-height: 35px
+              margin-bottom: 15px
+          &__right
+            ul
+              li
+                font-size: 16px
+                line-height: 25px
+                margin-bottom: 10px
+
+      .consultation-price
+        &__text
+          margin-bottom: 15px
+        &__summ
+          font-size: 40px
+      .consultation-step
+        height: 200px
+        padding: 30px 15px
+        &__number
+          margin-bottom: 15px
 
 
 
