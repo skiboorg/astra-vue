@@ -87,7 +87,7 @@
     text-transform: uppercase
     font: 14px 'Gotham Pro',sans-serif
   .sorted-list
-    margin-bottom: 110px
+    margin-bottom: 110px !important
   .filters-mobile
     display: none
   .filters

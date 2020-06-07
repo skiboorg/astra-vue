@@ -9,7 +9,7 @@
       </div>
       <div class="incart__btn">
 
-          <nuxt-link style="margin-right: 10px" class="btn" to="/order">
+          <nuxt-link v-show="cart.length>0" style="margin-right: 10px" class="btn" to="/order">
             Открыть заказ
           </nuxt-link>
 
@@ -56,6 +56,14 @@ export default {
 
 
    },
+    computed:{
+            cart(){
+                return this.$store.getters['cart/cart']
+
+
+            },
+
+        },
   methods:{
     onLoad(){
       console.log('load')

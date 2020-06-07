@@ -1,6 +1,6 @@
 <template >
   <div class="info-block" v-observe-visibility="visibilityChanged">
-    <div class="info-block-inner container" :class=" {fadeIn : isVisible ,fadeOut : !isVisible}">
+    <div class="info-block-inner container" :class=" {fadeIn : isVisible , fadeOut : !isVisible}">
        <h3>Консультации по продвижению в интернете</h3>
       <p>На консультации наши специалисты помогут вам улучшить ваш интернет-маркетинг или запустить его с нуля</p>
       <img src="/infoblock_m.png" alt="">
@@ -75,7 +75,7 @@
 
   .fadeIn
     animation: fade-in-right 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both
-    animation-delay: 1s
+    animation-delay: .2s
 
   .fadeOut
     animation: fade-out-right 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both

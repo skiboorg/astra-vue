@@ -20,17 +20,12 @@
         data:function(){
             return{
                 isVisible:false,
-
             }
         },
         async mounted() {
             if (!localStorage.getItem('token')){
                 this.$store.dispatch('token/setToken')
             }
-
-
-
-
         },
         async fetch({store}){
 
@@ -40,16 +35,6 @@
             if (store.getters['templates/templates'].length === 0){
                 await store.dispatch('templates/fetch')
             }
-            //  if (store.getters['cart/cart'].length === 0){
-            //      console.log('token/token]',store.getters['token/token'])
-            //     await store.dispatch('cart/getCartItems',store.getters['token/token'])
-            // }
-
-
-            // console.log('filters',store.getters['filters/filters'])
-            // console.log('templates',store.getters['templates/templates'])
-            console.log('cart',store.getters['cart/cart'])
-
         },
 
         components:{
@@ -61,11 +46,7 @@
             Feedback
         },
         methods: {
-            visibilityChanged (isVisible, entry) {
-                this.isVisible = isVisible
-                console.log(this.isVisible)
-                console.log(entry)
-            },
+
         },
     }
 </script>
