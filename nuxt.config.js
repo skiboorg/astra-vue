@@ -49,6 +49,7 @@ export default {
   ** Nuxt.js dev-modules
   */
   buildModules: [
+    '@aceforth/nuxt-optimized-images'
   ],
   /*
   ** Nuxt.js modules

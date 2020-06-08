@@ -33,7 +33,10 @@
 <script>
 
   import Splitter from 'split-html-to-chars'
-  import { TimelineLite, Back,TimelineMax,Elastic } from 'gsap'
+  import { gsap } from "gsap/dist/gsap";
+  import { TimelineMax,Elastic } from 'gsap'
+  gsap.registerPlugin(TimelineMax);
+  gsap.registerPlugin(Elastic);
   export default {
 
     mounted(){

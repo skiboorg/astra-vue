@@ -70,9 +70,16 @@
       </div>
 
     </section>
-    <section v-else class="order"  style="text-align: center">
+    <section v-show="cart.length ===  0 && !orderDone" class="order"  style="text-align: center">
       <div class="container">
         <h3>Вы ничего не заказали</h3>
+         <nuxt-link style="width: 200px" class="btn" to="/">На главную</nuxt-link>
+      </div>
+
+    </section>
+     <section v-show="orderDone" class="order"  style="text-align: center">
+      <div class="container">
+        <h3>Спасибо за заказ</h3>
          <nuxt-link style="width: 200px" class="btn" to="/">На главную</nuxt-link>
       </div>
 
@@ -90,6 +97,7 @@
                 hostingChecked:false,
                 phone:'',
                 payment:'Вариант1',
+                orderDone:false
             }
         },
         mounted() {
@@ -115,6 +123,7 @@
 
               this.$store.dispatch('cart/clearCart')
               this.$axios.$get(`/new_order/${localStorage.getItem('token')}/${JSON.stringify(info)}`)
+              this.orderDone = true
 
           }
         },
