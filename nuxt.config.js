@@ -59,6 +59,7 @@ export default {
   ],
   axios: {
     baseURL: "http://localhost:8000/api"
+    // baseURL: "http://site.astralid1.ru:8000/api"
   },
   /*
   ** Build configuration

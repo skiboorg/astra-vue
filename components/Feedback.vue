@@ -11,8 +11,8 @@
       </agile>
       <h4>Если у вас появились вопросы задайте их нам </h4>
       <div class="feedback-icons">
-        <a href=""> <img src="/wa.png" alt=""></a>
-        <a href=""><img src="/vb.png" alt=""></a>
+       <a target="_blank" href="https://wa.me/79000675472"> <img src="/wa.png" alt=""></a>
+          <a target="_blank" href="viber://chat?number=79000675472"><img src="/vb.png" alt=""></a>
       </div>
       <div class="video-modal">
       </div>
@@ -100,6 +100,7 @@ export default {
       user-select: none
 
   .feedback
+    margin-bottom: 60px
     h3
       font: 34px 'Montserrat',sans-serif
       line-height: 52px
@@ -147,6 +148,10 @@ export default {
       &:hover
         button
           background-color: #888
+  .feedback-icons
+    display: flex
+    align-items: center
+    justify-content: center
 
 
 

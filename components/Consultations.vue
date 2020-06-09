@@ -73,7 +73,7 @@
 
 <script>
 
-    import {Elastic, TimelineMax} from 'gsap'
+    import { gsap, TimelineMax, Elastic } from "gsap/dist/gsap";
 
     const tl = new TimelineMax()
     export default {
@@ -122,7 +122,7 @@
 
 <style lang="sass">
   .consultation
-    margin-bottom: 120px
+    margin-bottom: 120px !important
     h3
       font: 34px 'Montserrat',sans-serif
       line-height: 52px

@@ -4,8 +4,8 @@
       <div class="header__top">
         <div class="header__top-logo">ASTRAPROMO</div>
         <div class="header__top-icons">
-          <a href=""> <img src="/wa.png" alt=""></a>
-          <a href=""><img src="/vb.png" alt=""></a>
+          <a target="_blank" href="https://wa.me/79000675472"> <img src="/wa.png" alt=""></a>
+          <a target="_blank" href="viber://chat?number=79000675472"><img src="/vb.png" alt=""></a>
         </div>
         <div class="header__top-link"><a href="#consult" v-smooth-scroll>Консультация</a></div>
         <div class="header__top-phone">
@@ -17,10 +17,10 @@
           <span class="letter">и</span> <span class="letter">интернет магазинов</span></h1>
         <p class="header__offer-text">Чтобы посмотреть пример сайта,
           кликните на понравившийся шаблон</p>
-        <div class="header__offer-form">
-          <input class="header__offer-form-input" type="text" >
-          <span class="header__offer-form-button">Найти</span>
-        </div>
+        <!--<div class="header__offer-form">-->
+          <!--<input class="header__offer-form-input" type="text" >-->
+          <!--<span class="header__offer-form-button">Найти</span>-->
+        <!--</div>-->
       </div>
 
     </div>
@@ -33,10 +33,7 @@
 <script>
 
   import Splitter from 'split-html-to-chars'
-  import { gsap } from "gsap/dist/gsap";
-  import { TimelineMax,Elastic } from 'gsap'
-  gsap.registerPlugin(TimelineMax);
-  gsap.registerPlugin(Elastic);
+  import { gsap, TimelineMax, Elastic } from "gsap/dist/gsap";
   export default {
 
     mounted(){

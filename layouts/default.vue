@@ -91,6 +91,10 @@
     .el-checkbox__input
       margin-right: 20px
 
+    .el-checkbox__label
+      margin-right: 20px
+
+
     .el-checkbox__label, .el-radio__label
       font: 16px 'Gotham Pro',sans-serif
 
@@ -248,6 +252,18 @@
         align-items: center
         justify-content: space-between
         margin-right: 20px
+
+  .addition-item
+    display: flex
+    align-items: center
+    margin-bottom: 20px
+    &__checkbox
+      display: flex
+      align-items: center
+      flex-basis: 300px
+    &__price
+      font: 20px 'Gotham Pro Bold',sans-serif
+
   @media (max-width: 520px)
     .order
       &-item

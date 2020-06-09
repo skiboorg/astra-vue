@@ -2,16 +2,37 @@
   <div class="callback">
     <div class="container">
       <h3>Оставить заявку на консультацию</h3>
-      <div class="callback-form">
-        <input v-mask="'+7 (###) ### ## ##'" type="text" placeholder="Телефон">
-        <span class="btn">Оставить заявку</span>
+      <div v-show="!isSent" class="callback-form">
+        <input  v-mask="'+7 (###) ### ## ##'" v-model="phone" type="text" placeholder="Телефон">
+        <span  class="btn" :class="{btnDisabled : !phone  }" @click="sendCb">Оставить заявку</span>
 
       </div>
+        <p class="isSend" v-show="isSent">Спасибо за обращение, Вам перезвонят</p>
     </div>
   </div>
 </template>
 
+<script>
+  export default {
+    data(){
+      return{
+        phone:'',
+        isSent:false
+      }
+    },
+    methods:{
+      sendCb(){
+         this.$axios.$get(`/new_callback/${this.phone}`)
+        this.isSent = true
+      }
+    }
+  }
+</script>
+
 <style lang="sass">
+
+ .isSend
+   font: 25px 'Montserrat',sans-serif
  .callback
    background: #EDEDED
    padding: 120px 0
