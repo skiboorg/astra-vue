@@ -59,7 +59,8 @@
   body
     overflow-x: hidden
 
-
+  main
+    overflow-x: hidden
 
     .container
       max-width: 1290px

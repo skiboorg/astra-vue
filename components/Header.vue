@@ -2,7 +2,10 @@
   <header class="header">
     <div class="header__wrapper">
       <div class="header__top">
-        <div class="header__top-logo">ASTRAPROMO</div>
+        <div class="header__top-logo">
+          <img src="/logo.png" alt="">
+          ASTRAPROMO
+        </div>
         <div class="header__top-icons">
           <a target="_blank" href="https://wa.me/79000675472"> <img src="/wa.png" alt=""></a>
           <a target="_blank" href="viber://chat?number=79000675472"><img src="/vb.png" alt=""></a>
@@ -14,7 +17,7 @@
       </div>
       <div class="header__offer">
         <h1 ref="text" class="js-split"><span class="letter">Каталог</span> <span class="letter">авторских шаблонов</span> <span class="letter">для</span> <span class="letter">лендингов</span>
-          <span class="letter">и</span> <span class="letter">интернет магазинов</span></h1>
+          <span class="letter">и</span> <span class="letter">интернет магазинов</span> <span class="letter">от 980 руб.</span></h1>
         <p class="header__offer-text">Чтобы посмотреть пример сайта,
           кликните на понравившийся шаблон</p>
         <!--<div class="header__offer-form">-->
@@ -25,7 +28,7 @@
 
     </div>
     <div class="header-img">
-        <img src="/header_bg.png" alt="">
+        <img src="/h_bg.jpg" alt="">
       </div>
   </header>
 </template>
@@ -95,6 +98,12 @@
         flex-basis: 250px
         font: 16px 'Montserrat', sans-serif
         opacity: 0
+        display: flex
+        align-items: center
+        img
+          height: 40px
+          width: 40px
+          margin-right: 10px
       &-icons
         flex-basis: 250px
         opacity: 0
@@ -106,6 +115,7 @@
         opacity: 0
         a
           color: inherit
+          text-decoration: underline
       &-phone
         flex-grow: 1
         text-align: right
@@ -127,6 +137,14 @@
         line-height: 35px
         margin-bottom: 40px
         opacity: 0
+      &-text
+        position: relative
+        &::after
+          position: absolute
+          content: url(/a_d.png)
+          top: 53px
+          right: 250px
+
       &-form
         display: flex
         align-items: center
@@ -174,6 +192,7 @@
       margin-bottom: 20px
       &__top
         &-icons
+          flex-basis: 120px
           img
             width: 45px
             height: 45px
@@ -191,6 +210,8 @@
           line-height: 26px
         &-form
           display: none
+        &-text::after
+          content: none
 
 
 

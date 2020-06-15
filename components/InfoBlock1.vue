@@ -2,7 +2,7 @@
   <div class="info-block" v-observe-visibility="visibilityChanged">
     <div class="info-block-inner container" :class=" {fadeIn : isVisible , fadeOut : !isVisible}">
        <h3>Консультации по продвижению в интернете</h3>
-      <p>На консультации наши специалисты помогут вам улучшить ваш интернет-маркетинг или запустить его с нуля</p>
+      <p>Хотите начать получать клиентов с сайта максимально быстро и не переплачивать? Закажите нашу консультацию и начните получать клиентов с вашего сайта</p>
       <img src="/infoblock_m.png" alt="">
     </div>
   </div>

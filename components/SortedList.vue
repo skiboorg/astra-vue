@@ -49,7 +49,7 @@
       return{
         selectedType:'',
         currentFilter: 'vse',
-        img_host:'http://localhost:8000'
+        img_host:'http://site.astralid1.ru:8000'
       }
     },
       computed:{
