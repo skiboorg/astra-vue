@@ -12,14 +12,14 @@
     import vueSmoothScroll from 'vue2-smooth-scroll';
     import VueTheMask from 'vue-the-mask';
     import VueFriendlyIframe from 'vue-friendly-iframe';
-    import { Select, MessageBox, Checkbox, Tooltip , Radio, Dialog } from 'element-ui';
+    import { Select, MessageBox, Checkbox, Tooltip , Radio, Dialog ,Popover} from 'element-ui';
     import VueObserveVisibility from 'vue-observe-visibility'
 
     Vue.use(VueObserveVisibility)
 
 
 
-    Vue.component(Select.name, Select, MessageBox, Checkbox, Tooltip, Radio, Dialog);
+    Vue.component(Select.name, Select, MessageBox, Checkbox, Tooltip, Radio, Dialog,Popover);
     Vue.use(vueSmoothScroll)
     Vue.use(VueTheMask)
     Vue.use(VueFriendlyIframe);
@@ -58,7 +58,9 @@
 <style lang="sass">
   body
     overflow-x: hidden
-
+    font-family: 'Gotham Pro',sans-serif
+  button
+    font-family: 'Gotham Pro',sans-serif
   main
     overflow-x: hidden
 
@@ -67,6 +69,19 @@
       padding: 0 10px
       margin: 0 auto
 
+    .el-button
+      border: none
+      background: transparent
+      &:focus
+        border: none
+        background: transparent
+      &:hover
+        border: none
+        background: transparent
+    .el-popover__title
+        font: 10px 'Gotham Pro',sans-serif
+    .el-message-box
+      max-width: 420px !important
     .el-tooltip__popper
       font: 10px 'Gotham Pro',sans-serif
 
@@ -158,6 +173,14 @@
         flex-basis: 250px
         font: 16px 'Montserrat', sans-serif
         opacity: 1
+        display: flex
+        align-items: center
+        img
+          height: 40px
+          width: 40px
+          margin-right: 10px
+        a
+          color: inherit
       &-icons
         flex-basis: 250px
         opacity: 1
@@ -176,6 +199,24 @@
         opacity: 1
         a
           color: inherit
+  @media (max-width: 768px)
+    .header-small
+      background: #F3F3F3
+
+      &-img
+        display: none
+
+      margin-bottom: 20px
+      &__top
+        &-icons
+          flex-basis: 120px
+          img
+            width: 35px
+            height: 35px
+        &-link
+          display: none
+        &-phone
+          display: none
 
   .btnDisabled
     opacity: .8

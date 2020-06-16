@@ -3,7 +3,9 @@
     <header class="header-small">
       <div class="header-small__wrapper">
         <div class="header-small__top">
-          <div class="header-small__top-logo"> <nuxt-link to="/">ASTRAPROMO</nuxt-link>  </div>
+          <div class="header-small__top-logo">
+             <img src="/logo.png" alt="">
+            <nuxt-link to="/">ASTRAPROMO</nuxt-link>  </div>
           <div class="header-small__top-icons">
             <a href=""> <img src="/wa.png" alt=""></a>
             <a href=""><img src="/vb.png" alt=""></a>
@@ -23,7 +25,7 @@
 
         <div class="order-wrapper">
           <div class="order-item" v-for="(item,index) in cart">
-            <img class="order-item__img" :src="'http://localhost:8000' + item.image" alt="">
+            <img class="order-item__img" :src="'http://site.astralid1.ru:8000' + item.image" alt="">
             <div class="order-item__group">
               <p class="order-item__name">{{item.title}}</p>
               <p class="order-item__price">{{item.price}} руб</p>

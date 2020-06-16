@@ -3,9 +3,34 @@
     <div class="preview-header">
      <nuxt-link class="btn-return" to="/">На главную</nuxt-link>
       <div class="">
-        <span class="preview__btn phone" @click="test = 'previewFramePhone'"></span>
-        <span class="preview__btn ipad" @click="test = 'previewFrameIpad'"></span>
-        <span class="preview__btn desktop" @click="test = 'previewFrameDesktop'"></span>
+        <el-popover
+    placement="top-start"
+    title=""
+    width="200"
+    trigger="hover"
+    content="Мобильный">
+    <el-button slot="reference"> <span class="preview__btn phone" @click="test = 'previewFramePhone'"></span></el-button>
+  </el-popover>
+
+             <el-popover
+    placement="top-start"
+    title=""
+    width="200"
+    trigger="hover"
+    content="Планшет">
+    <el-button slot="reference"> <span class="preview__btn ipad" @click="test = 'previewFrameIpad'"></span></el-button>
+  </el-popover>
+
+                 <el-popover
+    placement="top-start"
+    title=""
+    width="200"
+    trigger="hover"
+    content="Десктоп">
+    <el-button slot="reference"> <span class="preview__btn desktop" @click="test = 'previewFrameDesktop'"></span></el-button>
+  </el-popover>
+
+
       </div>
       <div class="incart__btn">
 

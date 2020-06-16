@@ -194,8 +194,8 @@
         &-icons
           flex-basis: 120px
           img
-            width: 45px
-            height: 45px
+            width: 35px
+            height: 35px
         &-link
           display: none
         &-phone
