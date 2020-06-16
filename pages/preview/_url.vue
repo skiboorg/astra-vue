@@ -1,38 +1,8 @@
 <template>
   <div>
     <div class="preview-header">
-     <nuxt-link class="btn-return" to="/">На главную</nuxt-link>
-      <div class="">
-        <el-popover
-    placement="top-start"
-    title=""
-    width="200"
-    trigger="hover"
-    content="Мобильный">
-    <el-button slot="reference"> <span class="preview__btn phone" @click="test = 'previewFramePhone'"></span></el-button>
-  </el-popover>
-
-             <el-popover
-    placement="top-start"
-    title=""
-    width="200"
-    trigger="hover"
-    content="Планшет">
-    <el-button slot="reference"> <span class="preview__btn ipad" @click="test = 'previewFrameIpad'"></span></el-button>
-  </el-popover>
-
-                 <el-popover
-    placement="top-start"
-    title=""
-    width="200"
-    trigger="hover"
-    content="Десктоп">
-    <el-button slot="reference"> <span class="preview__btn desktop" @click="test = 'previewFrameDesktop'"></span></el-button>
-  </el-popover>
-
-
-      </div>
-      <div class="incart__btn">
+     <nuxt-link class="btn-return" to="/">К списку шаблонов</nuxt-link>
+        <div class="incart__btn">
 
           <nuxt-link v-show="cart.length>0" style="margin-right: 10px" class="btn" to="/order">
             Открыть заказ
@@ -40,6 +10,15 @@
 
         <span class="btn" @click="addToCart">Заказать</span>
               </div>
+      <div class="devices">
+        <span class="preview__btn phone" @click="test = 'previewFramePhone'"></span>
+        <p @click="test = 'previewFramePhone'">Мобильный</p>
+        <span class="preview__btn ipad" @click="test = 'previewFrameIpad'"></span>
+        <p @click="test = 'previewFrameIpad'">Планшет</p>
+        <span class="preview__btn desktop" @click="test = 'previewFrameDesktop'"></span>
+        <p @click="test = 'previewFrameDesktop'">Десктоп</p>
+      </div>
+
     </div>
     <div class="loader " v-bind:class="{loaderActiveC : loaderActive }">
         <div class="lds-roller" ><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
@@ -131,13 +110,13 @@ export default {
       display: flex
   .preview-header
     padding: 10px
-    background: #F3F3F3
-    height: 60px
+    background: #F4F4F4
+    height: 65px
     display: flex
     justify-content: space-between
     align-items: center
     margin-bottom: 30px
-    border-bottom: 1px solid #522EE3
+
 
   .btn-return
     position: relative
@@ -157,7 +136,13 @@ export default {
         opacity: 1
         left: -30px
 
-
+  .devices
+    display: flex
+    p
+      cursor: pointer
+      margin-right: 20px
+      &:last-child
+        margin-right: 0
 
 
   .incart__btn
@@ -166,11 +151,11 @@ export default {
 
     .bnt
       width: 100%
-      padding: 15px 0
+      padding: 10px 0
   .preview__btn
     display: inline-block
-    width: 40px
-    height: 40px
+    width: 22px
+    height: 22px
     background-size: contain !important
 
     box-sizing: border-box
@@ -182,11 +167,11 @@ export default {
     &:hover
       transform: translateY(-1px)
     &.desktop
-      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABmJLR0QA/wD/AP+gvaeTAAABkUlEQVR4nO2asU4CQRRFD8RQSC3RXzH6AfpN2gp+l5JooYWaaGMnfoEVhWOxQ9ywg4s4cBf3nuQly+zmvTs3MxOSN2CMMcaYNtMDLoF3ILQkJsAozp1RAwSpYkh0IwCHtIcj4kroxAeAjk6PhADQTbwYo1+aq8ZVzTzK71lkwGdibFsIpefUPML8gLeAWoUaG6AWoMYGqAWosQFqAWpsgFqAGhugFqDGBqgFqLEBagFqbIBagBoboBagxgaoBaixAWoBamyAWoAaG6AW8EvGVBucy44tRN3R/SmegJ2E1pT+urFk17vpK6DSzf0Dya532d1t6A5fUzVl2bHjud8B3B7fukMwO12K63FQXBxqC7PtMIHiqpj6tFfFBRSXBYd8X5drQ7zFyffYILPiub7Lgg9BtQA1NmANOXeBc+AFmFLd03UH1Px305jrLOZuNAPgnvWd3nexRiMZAI8UQl+BE6CfIW8fOI05Q6zROBP2gAcKgc/A/gZqHKyhxsrcsvk/Mzc5hOc6BD8y5Wl6TWPMP+MLXszUwYRfyIAAAAAASUVORK5CYII=') no-repeat center
+      background: url(/computer.png) no-repeat center
     &.ipad
-      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABmJLR0QA/wD/AP+gvaeTAAABo0lEQVR4nO2bQW7CMBBFn6peAuiBmhKuU+i6qLcqbOhFSE9Q2LCiCydSlSISrHG+ieZJs7HQ158f22IxBsfpywLYAkfgnGkdgQ1QWjf/kUFzt9baqvlFLXgCXoGplXACpsCS4PWM0U7Y1mJLC7GBWBE8f1qIHWqxiYXYQEwInn8sxJozdW/08v0QIfwCVKS7vGKrAoqIfjppJ5lj803tr/g2CyDXIxHlM+YIjAoPQG1AjQegNqDGA1AbUOMBqA2o8QDUBtR4AGoDajwAtQE1HoDagBoPQG1AjQegNqDGA1AbUOMBqA2o8QDUBtR4AGoDajwAtQE1HoDagBqLAL6AXSZrSegaPbk0iqJY8xGZGB4NNHb8T1q1lgSfEhszMUfgG3giz11QpRBtb6WCMJGpngq9NCX6fMW3WQD3gt8BfVAGMCfcJ8mmvK1IdQT+Tp3vO34bgx8BK5onM9aPpQrCLmjf3hbMCJ5NnsxsarGVhdhAvBE8mzyaKmuxEyGEnJ/NzQjNN8/m5lbCa/R/dG6td6vmG0rClmruhBzrUHs0+/LO2PkFayCaVo7KPUoAAAAASUVORK5CYII=') no-repeat center
+      background: url(/tablet.png) no-repeat center
     &.phone
-      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABmJLR0QA/wD/AP+gvaeTAAACdElEQVR4nO2bvU4cMRRGDxGiITRQAa9CJEjFz5K8AT0vwEIoQeR9Qg1IiJXgCaCGkAIJJQo0SEik8B0xuxlYD77ja3Z9JAsxY3++/tZre7xjyGR8WQWOgHvgKdF0DxwCLe3G7yXQuLppV6vxqyL4AGwAM1rCDTADtHGxPqHUE45ErK0hFolNXMwHGmJ3IjatIRaJaVzMfzXEiu/Ue8Mr7tGaggPHB+sArKnTA0Yai6IZvHrs0PeAbIB1ANZkA6wDsCa2AR3gmOrZZxQ4BU6iRuSB5krwQrTWKu6tyb1zpbrU4tY0YJ3n5/byvkL5/3WlupIz4Ctww//P7b3pBviiUF9SBiwDj6LzA5gHxkv3x4EFYF/yPAKLgXUmY8AU8Ec0tjzyb0ve38BkQL3JGPCN50/el6In+Bj2EskYcCbl52uU+SxlTgPqNTOgQ/dcfivlP9bQmJAyt6/o9sPMgN78bw0kVMcrv8VSuIPftnYULAx4d1tr+SswyGQDrAOwZugNqLMt7ksxzRX8wv1oOYf/QuaT/L1+RTcaofPyd/zm/aq0F1BvMs8CYzgTrvFv+E9c48cC6k3GAF+9WPV0MfSD4NAb0MQs0I+XRnOzUb4fUZ/OFMljgA/ZAOsArKlrQNW+XOrXgikPJlUDS6rX8iDoQ911QNVcnfq1YPI6YJDJb4paB2BNflO06ShSx9KAFdzW1xWwZBhHX5qaBq9K2pcN6OdpUIviyIz2YaklXC+4JPyFqF5mcTGrHJk5FLFNDbFIbOFiVjk01RKxB5wJKR+bm8U1vjg2t6IlvMvbf92xSjtajS9o4bpUMSakmO4kRrVPPjPo/AMByMgDAgVJngAAAABJRU5ErkJggg==') no-repeat center
+      background: url(/phone.png) no-repeat center
 
 
   .previewFrameDesktop
@@ -301,12 +286,16 @@ export default {
 
 
   @media (max-width: 1024px)
-    .preview__btn
-      display: none
     .previewFrameIpad
       background: none
       iframe
         padding-top: 0
         width: 100%
+    .devices
+      p
+        display: none
+  @media (max-width: 768px)
+    .preview__btn
+        display: none
 
 </style>

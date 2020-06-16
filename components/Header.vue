@@ -12,7 +12,8 @@
         </div>
         <div class="header__top-link"><a href="#consult" v-smooth-scroll>Консультация</a></div>
         <div class="header__top-phone">
-          <a href="">8 800 800 00 00</a>
+          <a href="callto:88008000000">8 800 800 00 00</a>
+          <span>Звонки по России бесплатно</span>
         </div>
       </div>
       <div class="header__offer">
@@ -74,8 +75,7 @@
 
   .header
     background: #F3F3F3
-    height: 582px
-    margin-bottom: 100px
+    height: 570px
     padding: 0 10px
     position: relative
     z-index: 1
@@ -121,8 +121,13 @@
         text-align: right
         font: 20px 'Montserrat', sans-serif
         opacity: 0
+        display: flex
+        flex-direction: column
         a
           color: inherit
+        span
+          font: 11px 'Gotham Pro',sans-serif
+          letter-spacing: 0.2px
     &__offer
       max-width: 650px
 
