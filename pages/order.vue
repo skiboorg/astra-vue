@@ -6,13 +6,11 @@
           <div class="header-small__top-logo">
              <img src="/logo.png" alt="">
             <nuxt-link to="/">ASTRAPROMO</nuxt-link>  </div>
-          <div class="header-small__top-icons">
-            <a href=""> <img src="/wa.png" alt=""></a>
-            <a href=""><img src="/vb.png" alt=""></a>
-          </div>
+
 
           <div class="header-small__top-phone">
-            <a href="">8 800 800 00 00</a>
+            <a href="callto:88008000000">8 800 800 00 00</a>
+          <span>Звонки по России бесплатно</span>
           </div>
         </div>
       </div>

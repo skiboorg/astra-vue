@@ -6,11 +6,17 @@
           <img src="/logo.png" alt="">
           ASTRAPROMO
         </div>
+         <div class="header__top-link"><a class="header__top-link-btn" href="#consult" v-smooth-scroll>Консультация</a></div>
         <div class="header__top-icons">
-          <a target="_blank" href="https://wa.me/79000675472"> <img src="/wa.png" alt=""></a>
+          <p class="header__top-icons-text">Пишите нам в:</p>
+          <a class="header__top-icons-btn" target="_blank" href="https://wa.me/79000675472"> <img src="/wa-sm.png" alt=""><p>WhatsApp</p></a>
+          <a class="header__top-icons-btn" target="_blank" href="viber://chat?number=79000675472"><img src="/vb-sm.png" alt=""><p>Viber</p></a>
+        </div>
+        <div class="header__top-icons-mobile">
+          <a target="_blank" href="https://wa.me/79000675472"> <img style="margin-right: 10px" src="/wa.png" alt=""></a>
           <a target="_blank" href="viber://chat?number=79000675472"><img src="/vb.png" alt=""></a>
         </div>
-        <div class="header__top-link"><a href="#consult" v-smooth-scroll>Консультация</a></div>
+
         <div class="header__top-phone">
           <a href="callto:88008000000">8 800 800 00 00</a>
           <span>Звонки по России бесплатно</span>
@@ -21,6 +27,7 @@
           <span class="letter">и</span> <span class="letter">интернет магазинов</span> <span class="letter">от 980 руб.</span></h1>
         <p class="header__offer-text">Чтобы посмотреть пример сайта,
           кликните на понравившийся шаблон</p>
+        <span class="btn header-btn" href="#catalog" v-smooth-scroll>Смотреть каталог</span>
         <!--<div class="header__offer-form">-->
           <!--<input class="header__offer-form-input" type="text" >-->
           <!--<span class="header__offer-form-button">Найти</span>-->
@@ -28,9 +35,9 @@
       </div>
 
     </div>
-    <div class="header-img">
-        <img src="/h_bg.jpg" alt="">
-      </div>
+    <!--<div class="header-img">-->
+        <!--<img src="/h_bg.jpg" alt="">-->
+      <!--</div>-->
   </header>
 </template>
 
@@ -61,7 +68,7 @@
         .fromTo('.header__top-phone', .8, {y: -100,opacity:0}, {y:0,opacity:1},"end")
         .staggerTo(els1,.5,{y:0,opacity:1,ease: Elastic.easeOut.config(1, 0.3)},0.05,"end")
         .fromTo('.header__offer-text', .8, {y: 100,opacity:0}, {y:0,opacity:1},"end")
-        .fromTo('.header__offer-form', .8, {y: 100,opacity:0}, {y:0,opacity:1},"end")
+        .fromTo('.header-btn', .8, {y: 100,opacity:0}, {y:0,opacity:1},"end")
       tl
         .staggerTo(els2,.1,{y:0,opacity:1,ease: Elastic.easeOut.config(1, 0.3)},.1,"end")
   }
@@ -74,11 +81,18 @@
     opacity: 0
 
   .header
-    background: #F3F3F3
-    height: 570px
+    background: #F3F3F3 url(/header_bg.png) no-repeat center right
+    height: 672px
     padding: 0 10px
     position: relative
     z-index: 1
+    margin-bottom: 60px
+    &-btn
+      width: 345px
+      opacity: 0
+      font-size: 18px
+      padding: 25px 0
+      font-weight: 600
     &-img
       position: absolute
       top: 0
@@ -101,21 +115,51 @@
         display: flex
         align-items: center
         img
-          height: 40px
-          width: 40px
-          margin-right: 10px
+
+          margin-right: 20px
       &-icons
-        flex-basis: 250px
+        display: flex
+        align-items: center
+        justify-content: space-between
+        flex-basis: 500px
         opacity: 0
-        img
-          margin-right: 10px
+        &-text
+          margin-right: 30px
+        &-btn
+          display: flex
+          align-items: center
+          justify-content: center
+          color: #000
+          border: 1px solid #000
+          box-sizing: border-box
+          border-radius: 5px
+          width: 165px
+          padding: 9px 0
+          text-align: center
+
+          img
+            width: 27px
+            height: 26px
+            margin-right: 10px
+      &-icons-mobile
+        display: none
+
+
+
       &-link
         font: 16px 'Gotham Pro',sans-serif
         cursor: pointer
         opacity: 0
-        a
+        margin-right: 120px
+        &-btn
           color: inherit
-          text-decoration: underline
+          border: 1px solid #522EE3
+          box-sizing: border-box
+          border-radius: 5px
+          display: inline-block
+          width: 165px
+          padding: 13px 0
+          text-align: center
       &-phone
         flex-grow: 1
         text-align: right
@@ -144,11 +188,7 @@
         opacity: 0
       &-text
         position: relative
-        &::after
-          position: absolute
-          content: url(/a_d.png)
-          top: 53px
-          right: 250px
+
 
       &-form
         display: flex
@@ -175,32 +215,41 @@
           cursor: pointer
           color: #fff
           font: 16px 'Gotham Pro',sans-serif
-  @media (max-width: 1366px)
-    .header
-      &-img
-        right: -25%
+  @media (max-width: 1270px)
+    .header__top
+      &-icons
+        flex-basis: 340px
+        &-text
+          display: none
   @media (max-width: 1024px)
-    .header
-      &-img
-        right: -50%
+    .header__top
+      &-link
+        margin-right: 10px
   @media (max-width: 950px)
-    .header
-      &-img
-        right: -75%
+    .header__top
+      &-link
+        display: none
   @media (max-width: 768px)
     .header
       background: #F3F3F3
-      height: 450px
-      &-img
-        display: none
+      height: 525px
+      &-btn
+        padding: 15px 0
 
-      margin-bottom: 20px
       &__top
-        &-icons
+        &-icons-mobile
+          display: flex
           flex-basis: 120px
+          justify-content: flex-end
+
           img
             width: 35px
             height: 35px
+
+
+        &-icons
+          display: none
+
         &-link
           display: none
         &-phone
@@ -217,6 +266,10 @@
           display: none
         &-text::after
           content: none
+  @media (max-width: 520px)
+    .header
+      &-btn
+        width: 100%
 
 
 

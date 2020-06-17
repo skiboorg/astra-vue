@@ -62,7 +62,7 @@
   button
     font-family: 'Gotham Pro',sans-serif
   main
-    overflow-x: hidden
+
 
     .container
       max-width: 1290px
@@ -196,9 +196,13 @@
         flex-grow: 1
         text-align: right
         font: 20px 'Montserrat', sans-serif
-        opacity: 1
+        display: flex
+        flex-direction: column
         a
           color: inherit
+        span
+          font: 11px 'Gotham Pro',sans-serif
+          letter-spacing: 0.2px
   @media (max-width: 768px)
     .header-small
       background: #F3F3F3

@@ -1,6 +1,6 @@
 <template>
 
-  <div class="sorted-list container">
+  <div id="catalog" class="sorted-list container">
     <div class="filters">
       <span class="filter" v-for="filter in filters" v-bind:class="{ active: currentFilter === filter.id }" v-on:click="setFilter(filter.id)">{{filter.name}}</span>
     </div>
