@@ -48,14 +48,15 @@
         <p class="consultation-step__text">Вы оставляете заявку</p>
       </div>
       <div class="consultation-step">
-
-        <p data-num="02" class="consultation-step__img"><img src="/s6.png" alt=""></p>
-        <p class="consultation-step__text">Вносите предоплату</p>
-      </div>
-      <div class="consultation-step">
-         <p data-num="03" class="consultation-step__img"><img src="/s2.png" alt=""></p>
+         <p data-num="02" class="consultation-step__img"><img src="/s2.png" alt=""></p>
         <p class="consultation-step__text">С Вами связывается менеджер и Вы согласовываете время консультации</p>
       </div>
+      <div class="consultation-step">
+
+        <p data-num="03" class="consultation-step__img"><img src="/s6.png" alt=""></p>
+        <p class="consultation-step__text">Вносите предоплату</p>
+      </div>
+
       <div class="consultation-step">
          <p data-num="04" class="consultation-step__img"><img src="/s3.png" alt=""></p>
         <p class="consultation-step__text">Специалист предварительно собирает информацию о Вашем проекте</p>
