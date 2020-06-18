@@ -1,13 +1,14 @@
 <template>
 
-  <div id="consult" class="consultation container">
+  <div id="consult" class="consultation ">
+    <div class="container">
     <h3>Для кого подходят консультации:</h3>
     <div class="consultation-items" v-observe-visibility="visibilityStepsChanged">
       <div class="consultation-item">
         <p class="consultation-item__title">Кто только хочет запустить продажи через интернет</p>
         <p class="consultation-item__subtitle">но не знает с чего начать и как не потратить деньги зря</p>
 
-        <p class="consultation-item__info">Вместе составим портрет вашей целевой аудитории</p>
+        <p class="consultation-item__info">Вместе составим портрет Вашей целевой аудитории</p>
         <p class="consultation-item__info">Проведем базовый анализ конкурентов</p>
         <p class="consultation-item__info">Сделаем уникальное торговое предложение, которое выделит вас среди конкурентов</p>
         <p class="consultation-item__info">Выберем канал продвижения</p>
@@ -17,10 +18,10 @@
         <p class="consultation-item__title">Для тех, кто уже запустил сайт</p>
         <p class="consultation-item__subtitle">но хочет улучшить его показатели</p>
 
-        <p class="consultation-item__info">Проведем аудит сайта. Покажем в каких частях сайта вы теряете клиентов и деньги</p>
+        <p class="consultation-item__info">Проведем аудит сайта. Покажем в каких частях сайта Вы теряете клиентов и деньги</p>
         <p class="consultation-item__info">Поможем исправить технические проблемы сайта (скорость загрузки, неработающие кнопки, проблемы с аналитикой и т.д.)</p>
-        <p class="consultation-item__info">Составим пошаговую инструкцию по решению проблем вашего сайта. Вам останется передать ее программисту или внести правки самостоятельно</p>
-        <p class="consultation-item__info">Сделаем уникальное торговое предложение, которое выделит вас среди конкурентов</p>
+        <p class="consultation-item__info">Составим пошаговую инструкцию по решению проблем Вашего сайта. Вам останется передать ее программисту или внести правки самостоятельно</p>
+        <p class="consultation-item__info">Сделаем уникальное торговое предложение, которое выделит Вас среди конкурентов</p>
         <p class="consultation-item__info">Выберем канал продвижения</p>
         <p class="consultation-item__info">Распишем стратегию продвижения (какие базовые настройки рекламы можно сделать)</p>
 
@@ -29,7 +30,7 @@
         <p class="consultation-item__title">Кто уже запустил рекламу</p>
         <p class="consultation-item__subtitle">но хочет больше и лучше</p>
 
-        <p class="consultation-item__info">Проведем аудит ваших рекламных кампаний и объявлений. Дадим список рекомендаций, который поможет вам сэкономить рекламный бюджет и увеличить эффективность рекламы</p>
+        <p class="consultation-item__info">Проведем аудит Ваших рекламных кампаний и объявлений. Дадим список рекомендаций, который поможет вам сэкономить рекламный бюджет и увеличить эффективность рекламы</p>
         <p class="consultation-item__info">Проведем аудит сайта и групп в социальных сетях. Покажем, в каких местах Вы теряете клиентов и как это можно исправить</p>
         <p class="consultation-item__info">Расскажем, как можно сэкономить на рекламе до 20% рекламного бюджета</p>
         <p class="consultation-item__info">Выберем канал продвижения</p>
@@ -47,21 +48,27 @@
         <p class="consultation-step__text">Вы оставляете заявку</p>
       </div>
       <div class="consultation-step">
-         <p data-num="02" class="consultation-step__img"><img src="/s2.png" alt=""></p>
-        <p class="consultation-step__text">С вами связывается наш менеджер и вы согласовываете время консультации</p>
+
+        <p data-num="02" class="consultation-step__img"><img src="/s6.png" alt=""></p>
+        <p class="consultation-step__text">Вносите предоплату</p>
       </div>
       <div class="consultation-step">
-         <p data-num="03" class="consultation-step__img"><img src="/s3.png" alt=""></p>
-        <p class="consultation-step__text">Специалист предварительно собирает информацию о вашем проекте</p>
+         <p data-num="03" class="consultation-step__img"><img src="/s2.png" alt=""></p>
+        <p class="consultation-step__text">С Вами связывается менеджер и Вы согласовываете время консультации</p>
       </div>
       <div class="consultation-step">
-         <p data-num="04" class="consultation-step__img"><img src="/s4.png" alt=""></p>
-        <p class="consultation-step__text">Вы созваниваетесь со специалистом в скайпе, зуме или вотсапе. В консультациимогут принимать участие несколько специалистов</p>
+         <p data-num="04" class="consultation-step__img"><img src="/s3.png" alt=""></p>
+        <p class="consultation-step__text">Специалист предварительно собирает информацию о Вашем проекте</p>
       </div>
       <div class="consultation-step">
-         <p data-num="05" class="consultation-step__img"><img src="/s5.png" alt=""></p>
-        <p class="consultation-step__text">В течение 24 часов вы получаете запись консультации и письменные рекомендации</p>
+         <p data-num="05" class="consultation-step__img"><img src="/s4.png" alt=""></p>
+        <p class="consultation-step__text">Далее специалист связывается с Вами по видео-концеренции и проводит консультацию </p>
       </div>
+      <div class="consultation-step">
+         <p data-num="06" class="consultation-step__img"><img src="/s5.png" alt=""></p>
+        <p class="consultation-step__text">В течение 24 часов Вы получаете запись консультации и письменные рекомендации</p>
+      </div>
+    </div>
     </div>
     <div class="consultation-price">
       <p class="consultation-price__text">Стоимость любой консультации</p>
@@ -69,6 +76,7 @@
     </div>
 
   </div>
+
 
 </template>
 
@@ -145,7 +153,7 @@
       grid-gap: 20px
       margin-bottom: 120px
     &-item
-      padding: 40px 30px
+      padding: 40px 30px 40px 50px
       background: #F9F9F9
       border: 3px solid #522EE3
       box-sizing: border-box
@@ -165,13 +173,22 @@
 
         max-width: 80%
       &__info
+        position: relative
         font-size: 18px
         line-height: 30px
         margin-bottom: 20px
+        &::before
+          position: absolute
+          content: ''
+          width: 9px
+          height: 9px
+          background: #522EE3
+          left: -25px
+          top: 10px
 
     .consultation-steps
       display: grid
-      grid-template-columns: repeat(auto-fill,minmax(200px,1fr))
+      grid-template-columns: repeat(auto-fill,minmax(180px,1fr))
       grid-gap: 20px
       margin-bottom: 60px
 
@@ -185,7 +202,7 @@
           position: absolute
           content: attr(data-num)
           font-weight: 600
-          left: 30px
+          left:
           background: #522EE3
           width: 35px
           height: 35px
@@ -198,8 +215,12 @@
 
 
       &__text
+        position: relative
         font: 16px 'Gotham Pro',sans-serif
+
     .consultation-price
+      background: #522EE3
+      padding: 40px 0
       display: flex
       flex-direction: column
       align-items: center
@@ -208,13 +229,13 @@
       &__text
         font-weight: 600
         font-size: 34px
-        color: #000
-        margin-bottom: 40px
+        color: #fff
+        margin-bottom: 30px
         text-transform: uppercase
         text-align: center
       &__summ
         font: 55px 'Gotham Pro Bold',sans-serif
-        color: #522EE3
+        color: #fff
     @media (max-width: 520px)
       .consultation
         margin-bottom: 50px
@@ -225,6 +246,7 @@
 
 
       .consultation-price
+
         &__text
           margin-bottom: 15px
           font-size: 24px

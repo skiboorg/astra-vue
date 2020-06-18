@@ -4,10 +4,9 @@
       <h3>Оставить заявку на консультацию</h3>
       <div v-show="!isSent" class="callback-form">
         <input  v-mask="'+7 (###) ### ## ##'" v-model="phone" type="text" placeholder="Телефон">
-        <span  class="btn" :class="{btnDisabled : !phone  }" @click="sendCb">Оставить заявку</span>
-
+        <span  class="btn" :class="{btnDisabled : !phone  }" @click="sendCb">Получить консультацию</span>
       </div>
-        <p class="isSend" v-show="isSent">Спасибо за обращение, Вам перезвонят</p>
+        <p class="isSend" v-show="isSent">Спасибо за обращение, менеджер свяжется с Вами в ближайшее время</p>
     </div>
   </div>
 </template>

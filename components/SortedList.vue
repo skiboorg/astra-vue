@@ -148,6 +148,7 @@
     &-name
       text-align: left
       font: 16px 'Gotham Pro Bold',sans-serif
+      margin-bottom: 35px
     &-price
       display: flex
       justify-content: space-between
