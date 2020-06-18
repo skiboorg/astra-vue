@@ -18,13 +18,13 @@
         </div>
 
         <div class="header__top-phone">
-          <a href="callto:88008000000">8 800 800 00 00</a>
-          <span>Звонки по России бесплатно</span>
+          <a class="btn header-btn-call" href="callto:88008000000">ПОЗВОНИТЬ БЕСПЛАТНО</a>
+
         </div>
       </div>
       <div class="header__offer">
         <h1 ref="text" class="js-split"><span class="letter">Каталог</span> <span class="letter">авторских шаблонов</span> <span class="letter">для</span> <span class="letter">лендингов</span>
-          <span class="letter">и</span> <span class="letter">интернет магазинов</span> <span class="letter">от 980 руб.</span></h1>
+          <span class="letter">и</span> <span class="letter">интернет магазинов</span> <span class="letter">от 1 980 руб.</span></h1>
         <p class="header__offer-text">Чтобы посмотреть пример сайта,
           кликните на понравившийся шаблон</p>
         <span class="btn header-btn" href="#catalog" v-smooth-scroll>Смотреть каталог</span>
@@ -93,6 +93,9 @@
       font-size: 18px
       padding: 25px 0
       font-weight: 600
+    &-btn-call
+      width: 185px
+      padding: 16px 0
     &-img
       position: absolute
       top: 0
@@ -109,7 +112,7 @@
       padding-top: 25px
       margin-bottom: 70px
       &-logo
-        flex-basis: 250px
+        flex-grow: 1
         font: 16px 'Montserrat', sans-serif
         opacity: 0
         display: flex
@@ -121,7 +124,7 @@
         display: flex
         align-items: center
         justify-content: space-between
-        flex-basis: 500px
+        flex-grow: 1
         opacity: 0
         &-text
           margin-right: 30px
@@ -161,17 +164,13 @@
           padding: 13px 0
           text-align: center
       &-phone
-        flex-grow: 1
+        flex-grow: 10
         text-align: right
         font: 20px 'Montserrat', sans-serif
         opacity: 0
-        display: flex
-        flex-direction: column
         a
-          color: inherit
-        span
-          font: 11px 'Gotham Pro',sans-serif
-          letter-spacing: 0.2px
+          color: #ffffff
+
     &__offer
       max-width: 650px
 
@@ -238,7 +237,7 @@
 
       &__top
         &-icons-mobile
-          display: flex
+          display: none
           flex-basis: 120px
           justify-content: flex-end
 
@@ -253,7 +252,7 @@
         &-link
           display: none
         &-phone
-          display: none
+
       &__offer
         h1
           font-size: 20px
@@ -268,8 +267,23 @@
           content: none
   @media (max-width: 520px)
     .header
+      &__top
+        margin-bottom: 30px
+        &-logo
+          font-size: 14px
+          img
+            width: 25px
+            height: 25px
+            margin-right: 10px
+
       &-btn
         width: 100%
+      &-btn-call
+        font-size: 10px
+        width: 130px
+        letter-spacing: -0.9px
+
+
 
 
 
