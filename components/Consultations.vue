@@ -162,12 +162,14 @@
         font-size: 24px
         min-height: 60px
         margin-bottom: 20px
-        color: #522EE3
+        color: #000
         line-height: 30px
 
       &__subtitle
         min-height: 60px
         font-size: 18px
+        font-weight: 600
+        color: #522EE3
         line-height: 30px
         margin-bottom: 60px
 
