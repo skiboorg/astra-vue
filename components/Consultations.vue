@@ -140,7 +140,7 @@
 
 <style lang="sass">
   .consultation
-    margin-bottom: 120px !important
+
     h3
       font: 34px 'Montserrat',sans-serif
       line-height: 52px
@@ -153,7 +153,7 @@
       grid-gap: 20px
       margin-bottom: 120px
     &-item
-      padding: 40px 30px 40px 50px
+      padding: 40px 10px 40px 40px
       background: #F9F9F9
       border: 3px solid #522EE3
       box-sizing: border-box
@@ -183,15 +183,13 @@
           width: 9px
           height: 9px
           background: #522EE3
-          left: -25px
+          left: -20px
           top: 10px
-
     .consultation-steps
       display: grid
       grid-template-columns: repeat(auto-fill,minmax(180px,1fr))
       grid-gap: 20px
       margin-bottom: 60px
-
     .consultation-step
       text-align: center
       opacity: 0
@@ -211,21 +209,16 @@
           align-items: center
           justify-content: center
           color: #ffffff
-
-
-
       &__text
         position: relative
         font: 16px 'Gotham Pro',sans-serif
-
     .consultation-price
       background: #522EE3
-      padding: 40px 0
+      padding: 50px 0
       display: flex
       flex-direction: column
       align-items: center
       justify-content: center
-
       &__text
         font-weight: 600
         font-size: 34px
@@ -243,10 +236,7 @@
           font-size: 20px
           line-height: 32px
           margin-bottom: 40px
-
-
       .consultation-price
-
         &__text
           margin-bottom: 15px
           font-size: 24px
