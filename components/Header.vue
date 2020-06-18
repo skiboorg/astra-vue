@@ -18,7 +18,7 @@
         </div>
 
         <div class="header__top-phone">
-          <a class="btn header-btn-call" href="callto:88008000000">ПОЗВОНИТЬ БЕСПЛАТНО</a>
+          <a class="btn header-btn-call" href="tel:88008000000">ПОЗВОНИТЬ БЕСПЛАТНО</a>
 
         </div>
       </div>
