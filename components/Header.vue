@@ -267,6 +267,8 @@
           content: none
   @media (max-width: 520px)
     .header
+      margin-bottom: 0
+      height: 460px
       &__top
         margin-bottom: 30px
         &-logo

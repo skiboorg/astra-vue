@@ -35,7 +35,7 @@
  .callback
    background: #EDEDED
    padding: 120px 0
-   margin-bottom: 140px
+   margin-bottom: 60px
    h3
     font: 34px 'Montserrat',sans-serif
     line-height: 52px

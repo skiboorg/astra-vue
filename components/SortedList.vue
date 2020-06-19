@@ -160,7 +160,7 @@
 
   @media (max-width: 520px)
     .sorted-list
-      margin-bottom: 50px
+      margin-bottom: 50px !important
     .filters-mobile
       display: block
       position: sticky

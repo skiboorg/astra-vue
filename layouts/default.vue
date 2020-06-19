@@ -12,14 +12,14 @@
     import vueSmoothScroll from 'vue2-smooth-scroll';
     import VueTheMask from 'vue-the-mask';
     import VueFriendlyIframe from 'vue-friendly-iframe';
-    import { Select, MessageBox, Checkbox, Tooltip , Radio, Dialog ,Popover} from 'element-ui';
+    import { Select, MessageBox, Checkbox, Tooltip , Radio, Dialog ,Popover, Collapse} from 'element-ui';
     import VueObserveVisibility from 'vue-observe-visibility'
 
     Vue.use(VueObserveVisibility)
 
 
 
-    Vue.component(Select.name, Select, MessageBox, Checkbox, Tooltip, Radio, Dialog,Popover);
+    Vue.component(Select.name, Select, MessageBox, Checkbox, Tooltip, Radio, Dialog,Popover,Collapse);
     Vue.use(vueSmoothScroll)
     Vue.use(VueTheMask)
     Vue.use(VueFriendlyIframe);

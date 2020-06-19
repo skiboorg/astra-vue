@@ -36,6 +36,7 @@ export default {
     './node_modules/element-ui/packages/theme-chalk/src/radio.scss',
     './node_modules/element-ui/packages/theme-chalk/src/dialog.scss',
     './node_modules/element-ui/packages/theme-chalk/src/popover.scss',
+    './node_modules/element-ui/packages/theme-chalk/src/collapse.scss',
 
   ],
   /*

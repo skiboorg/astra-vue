@@ -2,7 +2,7 @@
   <div class="info-block" v-observe-visibility="visibilityChanged">
     <div class="info-block-inner container" :class=" {fadeIn : isVisible , fadeOut : !isVisible}">
        <h3>Консультации по продвижению в интернете</h3>
-      <p>Сайт есть, а клиентов с него нет, или они дорого обходятся?<br>Записывайтесь к нам на консультацию - расскажем, как быстро и эффективно приводить клиентов на сайт, не переплачивая при этом</p>
+      <p>Сайт есть, а клиентов с него нет, или они дорого обходятся?<br><br>Записывайтесь к нам на консультацию - расскажем, как быстро и эффективно приводить клиентов на сайт, не переплачивая при этом</p>
       <img src="/infoblock_m.png" alt="">
     </div>
   </div>
@@ -59,7 +59,7 @@
     .info-block
       margin-bottom: 50px
       &-inner
-        height: 470px
+        height: 550px
         background: none
         justify-content: space-between
         align-items: center

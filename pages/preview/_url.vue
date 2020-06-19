@@ -1,7 +1,8 @@
 <template>
   <div>
     <div class="preview-header">
-     <nuxt-link class="btn-return" to="/">К списку шаблонов</nuxt-link>
+     <div class="preview-header__wrapper">
+         <nuxt-link class="btn-return" to="/">К списку шаблонов</nuxt-link>
         <div class="incart__btn">
 
           <nuxt-link v-show="cart.length>0" style="margin-right: 10px" class="btn" to="/order">
@@ -18,6 +19,8 @@
         <span class="preview__btn desktop" @click="test = 'previewFrameDesktop'"></span>
         <p @click="test = 'previewFrameDesktop'">Десктоп</p>
       </div>
+
+     </div>
 
     </div>
     <div class="loader " v-bind:class="{loaderActiveC : loaderActive }">
@@ -109,13 +112,16 @@ export default {
     &.loaderActiveC
       display: flex
   .preview-header
-    padding: 10px
     background: #F4F4F4
-    height: 65px
-    display: flex
-    justify-content: space-between
-    align-items: center
-    margin-bottom: 30px
+    &__wrapper
+      max-width: 1140px
+      margin: 0 auto
+      padding: 10px
+      height: 65px
+      display: flex
+      justify-content: space-between
+      align-items: center
+      margin-bottom: 30px
 
 
   .btn-return
