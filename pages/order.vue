@@ -57,8 +57,8 @@
 
         <h4>Варианты оплаты</h4>
         <div class="payment-type">
-          <el-radio v-model="payment" label="Вариант1">Вариант 1</el-radio>
-          <el-radio v-model="payment" label="Вариант2">Вариант 2</el-radio>
+          <el-radio v-model="payment" label="Р/С предприятия">Р/С предприятия</el-radio>
+          <el-radio v-model="payment" label="На банковскую карту">На банковскую карту</el-radio>
         </div>
         <h4>Номер телефона</h4>
 
@@ -96,7 +96,7 @@
                 domainChecked:false,
                 hostingChecked:false,
                 phone:'',
-                payment:'Вариант1',
+                payment:'Р/С предприятия',
                 orderDone:false
             }
         },
